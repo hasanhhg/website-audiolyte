@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://audiolyte.be/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://audiolyte.be/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://audiolyte.be/en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://audiolyte.be/fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://audiolyte.be/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://audiolyte.be/en</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://audiolyte.be/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://audiolyte.be/en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://audiolyte.be/fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://audiolyte.be/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://audiolyte.be/fr</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://audiolyte.be/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://audiolyte.be/en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://audiolyte.be/fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://audiolyte.be/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://audiolyte.be/producten</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://audiolyte.be/producten"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://audiolyte.be/en/gear"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://audiolyte.be/fr/materiel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://audiolyte.be/producten"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://audiolyte.be/en/gear</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://audiolyte.be/producten"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://audiolyte.be/en/gear"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://audiolyte.be/fr/materiel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://audiolyte.be/producten"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://audiolyte.be/fr/materiel</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://audiolyte.be/producten"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://audiolyte.be/en/gear"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://audiolyte.be/fr/materiel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://audiolyte.be/producten"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Alle producten — Audiolyte | Verhuur audio, licht &amp; video België</title>
+  <meta name="description" content="Bekijk ons volledige verhuuraanbod: Pioneer, Nexo, Shure, Allen &amp; Heath, Nicols en meer. Audio, licht, video, truss, kabels. Vraag een offerte aan.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://audiolyte.be/producten">
+  <link rel="alternate" hreflang="nl" href="https://audiolyte.be/producten">
+  <link rel="alternate" hreflang="en" href="https://audiolyte.be/en/gear">
+  <link rel="alternate" hreflang="fr" href="https://audiolyte.be/fr/materiel">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Alle producten — Audiolyte verhuur">
+  <meta property="og:description" content="Ons volledige verhuuraanbod: audio, licht, video, truss, kabels en backline.">
+  <meta property="og:url" content="https://audiolyte.be/producten">
+  <meta property="og:locale" content="nl_BE">
+  <meta property="og:locale:alternate" content="en_BE">
+  <meta property="og:locale:alternate" content="fr_BE">
+  <meta property="og:site_name" content="Audiolyte">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+    body{margin:0;background:#FAFAFA;}
+    img{max-width:100%;}
+    a{text-decoration:none;color:inherit;}
+    button{cursor:pointer;font-family:inherit;}
+    input,textarea{font-family:inherit;}
+    ::selection{background:rgba(122,92,255,0.3);color:#fff;}
+    .al-card{transition:transform .22s cubic-bezier(.2,0,0,1),box-shadow .25s ease,border-color .25s ease,background .25s ease;cursor:pointer;}
+    .al-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(10,14,20,0.09);}
+    .al-card.selected{background:#f8f6ff;border-color:#7A5CFF!important;}
+    .al-card.selected .al-check{opacity:1;transform:scale(1);}
+    .al-check{position:absolute;top:10px;right:10px;width:24px;height:24px;border-radius:50%;background:#7A5CFF;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.5);transition:opacity .25s cubic-bezier(.2,0,0,1),transform .3s cubic-bezier(.34,1.56,.64,1);z-index:2;pointer-events:none;color:#fff;}
+    .al-quote-bar{position:fixed;bottom:0;left:0;right:0;z-index:100;background:rgba(10,14,20,.92);-webkit-backdrop-filter:saturate(180%) blur(24px);backdrop-filter:saturate(180%) blur(24px);color:#fff;padding:16px clamp(20px,5vw,40px);display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:0 -1px 0 rgba(255,255,255,.08),0 -8px 32px rgba(0,0,0,.2);}
+    .al-quote-bar-inner{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;}
+    .al-modal-overlay{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(10,14,20,0.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);}
+    .al-modal{background:#fff;border-radius:20px;padding:clamp(28px,4vw,44px);max-width:540px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 24px 80px rgba(0,0,0,0.3);animation:al-modal-in .3s cubic-bezier(.2,0,0,1);}
+    .al-modal input,.al-modal textarea{width:100%;padding:12px 14px;border:1.5px solid #d1d5db;border-radius:10px;font-size:14px;color:#0A0E14;outline:none;background:#fff;transition:border-color .2s,box-shadow .2s;}
+    .al-modal input:focus,.al-modal textarea:focus{border-color:#7A5CFF;box-shadow:0 0 0 3px rgba(122,92,255,0.12);}
+    .al-modal label{font-size:12px;font-weight:600;color:#374151;display:block;margin-bottom:5px;}
+    @keyframes al-modal-in{from{opacity:0;transform:scale(.94) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}@keyframes al-spin{to{transform:rotate(360deg)}}
+    @media(max-width:767px){.al-quote-bar{padding:12px 16px;gap:10px;flex-wrap:wrap}.al-quote-bar-inner{flex-wrap:wrap;gap:10px}.al-quote-bar-inner>div:first-child{flex-wrap:wrap;gap:8px}.al-modal{padding:24px 20px}.al-modal input,.al-modal textarea{font-size:16px}.al-card{padding:12px}.al-card .al-check{width:20px;height:20px;top:6px;right:6px}}
+    body{padding-bottom:80px;}
+    @media(max-width:480px){[style*="grid-template-columns:repeat(auto-fill,minmax(176px,1fr))"]{grid-template-columns:repeat(2,1fr)!important;}}
+  </style>
+</helmet>
+
+<div lang="{{ lang }}" style="background:#FAFAFA;color:#0A0E14;font-family:Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;" id="al-root">
+
+  <!-- ============ HEADER ============ -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(250,250,251,0.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(10,14,20,0.08);">
+    <nav style="max-width:1320px;margin:0 auto;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,4vw,40px);gap:20px;">
+      <a href="Audiolyte.dc.html" aria-label="Audiolyte" style="display:flex;align-items:center;height:34px;flex-shrink:0;">
+        <img src="assets/logo/audiolyte.svg" alt="Audiolyte" style="height:34px;width:auto;display:block;">
+      </a>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <a href="Audiolyte.dc.html" style="display:inline-flex;align-items:center;gap:7px;font-family:Manrope;font-weight:600;font-size:14px;color:#0A0E14;opacity:.85;transition:opacity .2s;" style-hover="opacity:1;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+          {{ back }}
+        </a>
+        <div style="display:flex;align-items:center;gap:2px;border:1px solid rgba(10,14,20,0.12);border-radius:999px;padding:3px;">
+          <button onClick="{{ setLangNl }}" style="{{ langStyleNl }}">NL</button>
+          <button onClick="{{ setLangEn }}" style="{{ langStyleEn }}">EN</button>
+          <button onClick="{{ setLangFr }}" style="{{ langStyleFr }}">FR</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section style="background:#0A0E14;color:#fff;padding:clamp(56px,8vw,96px) clamp(20px,5vw,48px) clamp(48px,6vw,72px);">
+    <div style="max-width:1240px;margin:0 auto;">
+      <div style="display:inline-flex;align-items:center;gap:9px;font-family:Sora;font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,0.7);">
+        <span style="width:7px;height:7px;border-radius:50%;background:linear-gradient(90deg,#34E0FF,#7A5CFF,#FF9A5A);"></span>
+        {{ eyebrow }}
+      </div>
+      <h1 style="font-family:Sora;font-weight:700;font-size:clamp(2.2rem,5.4vw,4rem);line-height:1.02;letter-spacing:-0.03em;margin:18px 0 0;">{{ pageTitle }}</h1>
+      <p style="font-family:Manrope;font-size:clamp(1rem,1.6vw,1.2rem);color:rgba(255,255,255,0.66);line-height:1.55;max-width:52ch;margin:18px 0 0;">{{ pageIntro }}</p>
+    </div>
+  </section>
+
+  <!-- ============ CATEGORIES ============ -->
+  <main style="max-width:1240px;margin:0 auto;padding:clamp(48px,6vw,80px) clamp(20px,5vw,48px) clamp(64px,8vw,110px);display:flex;flex-direction:column;gap:clamp(52px,7vw,88px);">
+    <sc-for list="{{ sections }}" as="sec" hint-placeholder-count="6">
+      <section>
+        <div style="display:flex;align-items:baseline;gap:14px;padding-bottom:18px;border-bottom:1px solid rgba(10,14,20,0.12);margin-bottom:clamp(24px,3vw,36px);">
+          <h2 style="font-family:Sora;font-weight:700;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-0.02em;margin:0;">{{ sec.name }}</h2>
+          <span style="font-family:Manrope;font-weight:600;font-size:14px;color:#9aa1ab;">{{ sec.count }}</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:clamp(14px,1.6vw,20px);">
+          <sc-for list="{{ sec.items }}" as="p" hint-placeholder-count="6">
+            <div onClick="{{ p.toggle }}" class="al-card {{ p.cardClass }}" style="background:#fff;border:2px solid transparent;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:13px;position:relative;">
+              <div class="al-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+              <div style="aspect-ratio:1/1;position:relative;border-radius:8px;overflow:hidden;">
+                <sc-if value="{{ p.img }}" hint-placeholder-val="img"><div role="img" aria-label="{{ p.name }}" style="{{ p.bgStyle }}"></div></sc-if>
+                <sc-if value="{{ p.noImg }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;background:#f1f2f4;color:#aeb4bd;">
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>
+                  <span style="font-family:Manrope;font-size:11.5px;font-weight:500;">{{ noPhoto }}</span>
+                </div></sc-if>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:4px;">
+                <div style="font-family:Manrope;font-weight:600;font-size:14px;line-height:1.25;color:#0A0E14;">{{ p.name }}</div>
+                <sc-if value="{{ p.priceStr }}" hint-placeholder-val="price"><div style="font-family:Manrope;font-weight:600;font-size:12.5px;color:#7A5CFF;">{{ p.priceStr }}</div></sc-if>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </sc-for>
+
+    <!-- CTA -->
+    <section style="background:#0A0E14;color:#fff;border-radius:20px;padding:clamp(36px,5vw,60px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;">
+      <div>
+        <h2 style="font-family:Sora;font-weight:700;font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:-0.02em;margin:0;">{{ ctaTitle }}</h2>
+        <p style="font-family:Manrope;font-size:15px;color:rgba(255,255,255,0.66);margin:12px 0 0;max-width:44ch;line-height:1.55;">{{ ctaSub }}</p>
+      </div>
+      <a href="Audiolyte.dc.html#contact" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0A0E14;font-family:Manrope;font-weight:600;font-size:15px;padding:15px 30px;border-radius:999px;flex-shrink:0;transition:transform .2s ease,box-shadow .2s ease;" style-hover="transform:translateY(-2px);box-shadow:0 14px 38px rgba(122,92,255,0.3);">{{ ctaBtn }}</a>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer style="background:#0A0E14;color:#fff;border-top:1px solid rgba(255,255,255,0.1);padding:32px clamp(20px,5vw,48px);">
+    <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;">
+      <a href="Audiolyte.dc.html"><img src="assets/logo/audiolyte-light.svg" alt="Audiolyte" style="height:24px;width:auto;display:block;"></a>
+      <a href="Audiolyte.dc.html" style="display:inline-flex;align-items:center;gap:7px;font-family:Manrope;font-weight:600;font-size:14px;color:rgba(255,255,255,0.7);transition:color .2s;" style-hover="color:#fff;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        {{ back }}
+      </a>
+      <div style="font-family:Manrope;font-size:13px;color:rgba(255,255,255,0.4);">&copy; 2026 Audiolyte &middot; audiolyte.be</div>
+    </div>
+  </footer>
+
+  <!-- ============ QUOTE BAR ============ -->
+  <sc-if value="{{ showQuoteBar }}" hint-placeholder-val="{{ false }}">
+    <div class="al-quote-bar">
+      <div class="al-quote-bar-inner">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="font-family:Manrope;font-weight:500;font-size:14px;color:rgba(255,255,255,0.55);">{{ quoteLabel }}</span>
+          <span id="al-count-badge" style="display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:30px;padding:0 8px;border-radius:999px;background:rgba(122,92,255,0.25);color:#b8a8ff;font-family:Sora;font-weight:700;font-size:14px;">{{ quoteCount }}</span>
+          <button onClick="{{ clearSelection }}" style="background:transparent;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.45);font-family:Manrope;font-size:12px;padding:5px 12px;border-radius:999px;cursor:pointer;transition:border-color .2s,color .2s;" style-hover="border-color:rgba(255,255,255,0.35);color:#fff;">{{ quoteClear }}</button>
+        </div>
+        <div onClick="{{ openForm }}" data-al-openform="1" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0A0E14;font-family:Manrope;font-weight:600;font-size:14px;padding:12px 24px;border-radius:999px;transition:transform .2s cubic-bezier(.2,0,0,1),box-shadow .2s ease;flex-shrink:0;cursor:pointer;white-space:nowrap;" style-hover="transform:translateY(-1px);box-shadow:0 8px 24px rgba(122,92,255,0.3);">{{ quoteBtnText }} &rarr;</div>
+      </div>
+    </div>
+  </sc-if>
+
+
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  CATS = {
+    light: [
+      {n:'Nicols Racer BSW-280', f:'nicols-racer-bsw280.png', p:65},
+      {n:'Briteq BT-36 Wash', f:'briteq-bt36.avif', p:35},
+      {n:'Beambox 15W Laser', f:'laserworld-show-laser.jpg', p:275},
+      {n:'ChamSys MagicQ Compact', f:'chamsys-compact-connect.jpg', p:85},
+      {n:'Antari HZ500 Hazer', f:'antari-hz500.jpg', p:30},
+      {n:'Antari AF-3', f:'antari-af3.webp', p:12.5},
+      {n:'Fourbar HP', f:'', p:25},
+    ],
+    audio: [
+      {n:'Nexo PS15', f:'nexo-ps15.jpeg', p:35},
+      {n:'Nexo LS1200 Sub', f:'nexo-ls1200.jpg', p:30},
+      {n:'Camco Vortex 6', f:'camco-vortex-6.jpg', p:35},
+      {n:'Allen & Heath SQ5', f:'allen-heath-sq5.webp', p:45},
+      {n:'Allen & Heath DX168', f:'allen-heath-dx168.jpg', p:55},
+      {n:'Mackie SRM450', f:'mackie-srm450.jpg', p:25},
+      {n:'Mackie SWA1501 Sub', f:'mackie-swa1501.jpg', p:25},
+      {n:'Shure ULXD4 Wireless', f:'shure-ulxd4.jpg', p:60},
+      {n:'Shure QLX-D Bodypack', f:'shure-qlxd1-bodypack.jpg', p:15},
+      {n:'Shure Beta 58A', f:'shure-beta58a.avif', p:20},
+      {n:'Shure SM58', f:'shure-sm58.jpg', p:6.5},
+      {n:'Shure SM57', f:'shure-sm57.jpg', p:6.5},
+      {n:'Sennheiser e904', f:'sennheiser-e904.jpg', p:12.5},
+      {n:'DI BSS AR133', f:'bss-ar133-di-box.jpg', p:10},
+      {n:'ART Splitter', f:'art-s8-splitter.jpg', p:12.5},
+      {n:'PD Connex XLR/RJ45', f:'pd-connex-xlr-rj45.webp', p:12},
+    ],
+    djvideo: [
+      {n:'Blackmagic ATEM Mini Extreme ISO', f:'', p:85},
+      {n:'Roland RD-700NX', f:'', p:110},
+      {n:'Korg Triton Extreme', f:'', p:70},
+      {n:'Yamaha Motif ES-7', f:'', p:70},
+      {n:'Ampeg Bass Amp', f:'', p:60},
+      {n:'CDJ 3000 & DJM A9', f:'cdj-djm-set.jpg', p:195},
+      {n:'Samsung QM55C Display', f:'samsung-qm55c-display.jpg', p:135},
+      {n:'Kenwood TK3301 Walkies', f:'kenwood-tk3301.avif', p:20},
+    ],
+    rigging: [
+      {n:'Prolyte H30V Truss', f:'prolyte-h30v-truss.png', p:20},
+      {n:'VMB TE071 Lift', f:'vmb-te071-lifter.jpg', p:25},
+      {n:'Truss Tower 4m', f:'truss-tower-lift.jpg', p:32.5},
+      {n:'Wentex Base45', f:'wentex-base45.jpg', p:5},
+      {n:'Wentex Horizon', f:'wentex-drape-support-mid.jpg', p:5},
+      {n:'Wentex Vertical', f:'wentex-drape-support-tall.jpg', p:5},
+      {n:'Molton Backdrop', f:'molton-backdrop.webp', p:15},
+    ],
+    cabling: [
+      {n:'XLR Kabelkit', f:'xlr-cable-kit.jpg', p:35},
+      {n:'XLR 1,5m', f:'xlr-cable-kit.jpg', p:1},
+      {n:'XLR 3m', f:'xlr-cable-kit.jpg', p:1},
+      {n:'XLR 5m', f:'xlr-cable-kit.jpg', p:1.5},
+      {n:'XLR 10m', f:'xlr-cable-kit.jpg', p:2.5},
+      {n:'Stekkerdoos 1m', f:'', p:1.5},
+      {n:'Stekkerdoos 1,5m', f:'', p:1.5},
+      {n:'Stekkerdoos 10m', f:'', p:4},
+      {n:'CAT6 50m', f:'cat6-50m.jpg', p:15},
+    ],
+  };
+
+  ORDER = ['light', 'audio', 'djvideo', 'rigging', 'cabling'];
+
+  CATNAMES = {
+    light: {nl:'Licht', en:'Lighting', fr:'Éclairage'},
+    audio: {nl:'Audio', en:'Audio', fr:'Audio'},
+    djvideo: {nl:'DJ, Video & Backline', en:'DJ, Video & Backline', fr:'DJ, Vidéo & Backline'},
+    rigging: {nl:'Trussing & Decor', en:'Rigging & Drape', fr:'Structures & Décor'},
+    cabling: {nl:'Kabels & stroom', en:'Cabling & power', fr:'Câblage & alimentation'},
+  };
+
+  CHROME = {
+    nl: {eyebrow:'Verhuur', pageTitle:'Alle producten', pageIntro:'Ons volledige verhuuraanbod, overzichtelijk per categorie. Selecteer wat je nodig hebt en vraag een offerte aan.', back:'Terug naar home', noPhoto:'Geen foto', perDay:'/ dag', ctaTitle:'Niet zeker wat je nodig hebt?', ctaSub:'Vertel ons over je evenement en wij stellen de juiste opstelling samen.', ctaBtn:'Offerte aanvragen', subjectPrefix:'Offerteaanvraag', onRequest:'Op aanvraag', quoteLabel:'Geselecteerd:', quoteClear:'Wissen', quoteBtn:'Offerte aanvragen', formTitle:'Offerte aanvragen', formItems:'Geselecteerde producten', formName:'Naam', formNamePlh:'Jouw naam', formEmail:'E-mail', formEmailPlh:'jouw@email.be', formPhone:'Telefoon', formPhonePlh:'+32 4XX XX XX XX', formMsg:'Extra informatie', formMsgPlh:'Datum, locatie, bijzonderheden...', formSentTitle:'Offerte aangevraagd!', formSentDesc:'We nemen binnen 2 werkdagen contact met je op.', formClose:'Sluiten', formBtn:'Verzenden', errName:'Vul je naam in.', errEmail:'Vul je e-mailadres in.', errEmailInvalid:'E-mailadres is niet geldig.', errPhone:'Telefoonnummer lijkt niet correct (bv. +32 4XX XX XX XX).', errGeneric:'Er ging iets mis.', errNetwork:'Kon de server niet bereiken.'},
+    en: {eyebrow:'Rental', pageTitle:'All gear', pageIntro:'Our full rental inventory, organised by category. Pick what you need and request a quote.', back:'Back to home', noPhoto:'No photo', perDay:'/ day', ctaTitle:'Not sure what you need?', ctaSub:'Tell us about your event and we will put together the right setup.', ctaBtn:'Request a quote', subjectPrefix:'Quote request', onRequest:'On request', quoteLabel:'Selected:', quoteClear:'Clear', quoteBtn:'Request a quote', formTitle:'Request a quote', formItems:'Selected items', formName:'Name', formNamePlh:'Your name', formEmail:'Email', formEmailPlh:'your@email.com', formPhone:'Phone', formPhonePlh:'+32 4XX XX XX XX', formMsg:'Extra info', formMsgPlh:'Date, venue, details...', formSentTitle:'Quote requested!', formSentDesc:"We'll get back to you within 2 working days.", formClose:'Close', formBtn:'Send', errName:'Enter your name.', errEmail:'Enter your email address.', errEmailInvalid:'Email address is not valid.', errPhone:'Phone number seems incorrect (e.g. +32 4XX XX XX XX).', errGeneric:'Something went wrong.', errNetwork:'Could not reach the server.'},
+    fr: {eyebrow:'Location', pageTitle:'Tout le matériel', pageIntro:'Tout notre parc de location, classé par catégorie. Sélectionnez ce dont vous avez besoin et demandez un devis.', back:'Retour à l\u2019accueil', noPhoto:'Pas de photo', perDay:'/ jour', ctaTitle:'Pas sûr de ce qu\u2019il vous faut ?', ctaSub:'Parlez-nous de votre événement et nous composerons la bonne configuration.', ctaBtn:'Demander un devis', subjectPrefix:'Demande de devis', onRequest:'Sur demande', quoteLabel:'Sélectionné:', quoteClear:'Effacer', quoteBtn:'Demander un devis', formTitle:'Demander un devis', formItems:'Produits sélectionnés', formName:'Nom', formNamePlh:'Votre nom', formEmail:'E-mail', formEmailPlh:'votre@email.be', formPhone:'Téléphone', formPhonePlh:'+32 4XX XX XX XX', formMsg:'Info supplémentaire', formMsgPlh:'Date, lieu, détails...', formSentTitle:'Devis demandé!', formSentDesc:'Nous vous répondrons sous 2 jours ouvrables.', formClose:'Fermer', formBtn:'Envoyer', errName:'Entrez votre nom.', errEmail:'Entrez votre adresse e-mail.', errEmailInvalid:'Adresse e-mail non valide.', errPhone:'Le numéro de téléphone semble incorrect (ex. +32 4XX XX XX XX).', errGeneric:'Une erreur est survenue.', errNetwork:'Impossible de joindre le serveur.'},
+  };
+
+  state = {
+    lang: (() => {
+      try { const s = localStorage.getItem('al-lang'); if (s === 'en' || s === 'nl' || s === 'fr') return s; } catch (e) {}
+      const n = (typeof navigator !== 'undefined' ? (navigator.language || '') : '').toLowerCase();
+      if (n.indexOf('fr') === 0) return 'fr';
+      if (n.indexOf('en') === 0) return 'en';
+      return 'nl';
+    })(),
+    selected: [],
+  };
+
+  componentDidMount() {
+    window.alClearSelection = () => this._clearSelection();
+    window.alChrome = this.CHROME;
+  }
+
+  _setLang(code) {
+    try { localStorage.setItem('al-lang', code); } catch (e) {}
+    this.setState({ lang: code });
+  }
+
+  _toggleItem(name) {
+    const sel = this.state.selected.slice();
+    const idx = sel.indexOf(name);
+    if (idx >= 0) sel.splice(idx, 1);
+    else sel.push(name);
+    this.setState({ selected: sel });
+  }
+
+  _clearSelection() {
+    this.setState({ selected: [] });
+  }
+
+  _openForm() {
+    const items = this.state.selected;
+    if (items.length === 0) return;
+    const lang = this.state.lang;
+    const c = this.CHROME[lang] || this.CHROME.nl;
+
+    // Fill modal with current language
+    document.getElementById('al-modal-title').textContent = c.formTitle;
+    document.getElementById('al-modal-success-title').textContent = c.formSentTitle;
+    document.getElementById('al-modal-success-desc').textContent = c.formSentDesc;
+    document.getElementById('al-label-name').innerHTML = c.formName + ' <span style="color:#ef4444;">*</span>';
+    document.getElementById('al-label-email').innerHTML = c.formEmail + ' <span style="color:#ef4444;">*</span>';
+    document.getElementById('al-label-phone').textContent = c.formPhone;
+    document.getElementById('al-label-msg').textContent = c.formMsg;
+    document.querySelector('#al-modal-success .al-modal-close').textContent = c.formClose;
+    document.getElementById('al-modal-items').querySelector('div:first-child').textContent = c.formItems;
+
+    // Populate item list
+    const list = document.getElementById('al-modal-items-list');
+    list.innerHTML = items.map(n => '<div style="font-family:Manrope;font-size:13px;color:#0A0E14;padding:3px 0;">&bull; ' + n.replace(/&/g, '&amp;') + '</div>').join('');
+
+    // Show form, hide success
+    document.getElementById('al-modal-form').style.display = '';
+    document.getElementById('al-modal-success').style.display = 'none';
+    document.getElementById('al-form-error').style.display = 'none';
+    document.getElementById('al-form-btn-text').textContent = c.formBtn;
+
+    // Set placeholders
+    document.getElementById('al-form-name').placeholder = c.formNamePlh;
+    document.getElementById('al-form-email').placeholder = c.formEmailPlh;
+    document.getElementById('al-form-phone').placeholder = c.formPhonePlh;
+    document.getElementById('al-form-msg').placeholder = c.formMsgPlh;
+
+    // Clear fields
+    document.getElementById('al-form-name').value = '';
+    document.getElementById('al-form-email').value = '';
+    document.getElementById('al-form-phone').value = '';
+    document.getElementById('al-form-msg').value = '';
+
+    // Show modal
+    document.getElementById('al-modal-overlay').style.display = '';
+  }
+
+  renderVals() {
+    const lang = this.state.lang;
+    const c = this.CHROME[lang] || this.CHROME.nl;
+    const selectedSet = new Set(this.state.selected);
+
+    const fmtPrice = (p) => {
+      if (!p || p <= 0) return c.onRequest;
+      const money = lang === 'en' ? String(p) : String(p).replace('.', ',');
+      return '\u20ac' + money + ' ' + c.perDay;
+    };
+
+    const sections = this.ORDER.map((id) => {
+      const items = (this.CATS[id] || []).map((it) => {
+        const img = it.f ? 'assets/products/' + it.f : '';
+        const isSel = selectedSet.has(it.n);
+        return {
+          name: it.n,
+          img,
+          noImg: !it.f,
+          priceStr: fmtPrice(it.p),
+          bgStyle: img ? "position:absolute;inset:0;background-image:url('" + img + "');background-size:contain;background-position:center;background-repeat:no-repeat;" : '',
+          selected: isSel,
+          cardClass: isSel ? 'selected' : '',
+          toggle: () => this._toggleItem(it.n),
+        };
+      });
+      return { name: (this.CATNAMES[id] || {})[lang] || id, count: items.length, items };
+    });
+
+    const selCount = this.state.selected.length;
+    const showQuoteBar = selCount > 0;
+
+    const mkLang = (code) => {
+      const active = this.state.lang === code;
+      return 'background:' + (active ? 'rgba(10,14,20,0.08)' : 'transparent') +
+        ';border:0;cursor:pointer;font-family:Sora,sans-serif;font-weight:600;font-size:12px;letter-spacing:.05em;padding:5px 10px;border-radius:999px;transition:opacity .2s ease,background .25s ease;color:#0A0E14;opacity:' +
+        (active ? '1' : '0.5') + ';';
+    };
+
+    return {
+      lang,
+      sections,
+      eyebrow: c.eyebrow,
+      pageTitle: c.pageTitle,
+      pageIntro: c.pageIntro,
+      back: c.back,
+      noPhoto: c.noPhoto,
+      ctaTitle: c.ctaTitle,
+      ctaSub: c.ctaSub,
+      ctaBtn: c.ctaBtn,
+      langStyleNl: mkLang('nl'),
+      langStyleEn: mkLang('en'),
+      langStyleFr: mkLang('fr'),
+      setLangNl: () => this._setLang('nl'),
+      setLangEn: () => this._setLang('en'),
+      setLangFr: () => this._setLang('fr'),
+      showQuoteBar,
+      quoteLabel: c.quoteLabel,
+      quoteClear: c.quoteClear,
+      quoteBtnText: c.quoteBtn,
+      quoteCount: '' + selCount,
+      clearSelection: () => this._clearSelection(),
+      openForm: () => this._openForm(),
+    };
+  }
+}
+</script>
+
+<script>
+// Build modal dynamically (outside DC runtime's reach)
+(function() {
+  const overlay = document.createElement('div');
+  overlay.id = 'al-modal-overlay';
+  overlay.className = 'al-modal-overlay';
+  overlay.style.display = 'none';
+  overlay.innerHTML = '<div class="al-modal">'
+    + '<div id="al-modal-success" style="display:none;text-align:center;padding:20px 0;">'
+    + '<div style="width:56px;height:56px;border-radius:50%;background:#dcfce7;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>'
+    + '<h3 id="al-modal-success-title" style="font-family:Sora;font-weight:700;font-size:1.4rem;margin:0;color:#0A0E14;">Offerte aangevraagd!</h3>'
+    + '<p id="al-modal-success-desc" style="font-family:Manrope;font-size:14px;color:#6B7280;line-height:1.5;margin:12px 0 0;">We nemen binnen 2 werkdagen contact met je op.</p>'
+    + '<button class="al-modal-close" style="margin-top:24px;background:#0A0E14;color:#fff;font-family:Manrope;font-weight:600;font-size:14px;padding:12px 28px;border:0;border-radius:999px;cursor:pointer;">Sluiten</button>'
+    + '</div>'
+    + '<div id="al-modal-form">'
+    + '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">'
+    + '<h3 id="al-modal-title" style="font-family:Sora;font-weight:700;font-size:1.3rem;margin:0;color:#0A0E14;">Offerte aanvragen</h3>'
+    + '<button class="al-modal-close" style="background:transparent;border:0;cursor:pointer;color:#9aa1ab;padding:4px;" aria-label="Sluiten">'
+    + '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>'
+    + '</button></div>'
+    + '<div id="al-modal-items" style="background:#f8f6ff;border-radius:12px;padding:14px 16px;margin-bottom:20px;">'
+    + '<div style="font-family:Manrope;font-size:12px;font-weight:600;color:#7A5CFF;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;">Geselecteerde producten</div>'
+    + '<div id="al-modal-items-list" style="font-family:Manrope;font-size:13px;"></div></div>'
+    + '<div style="display:flex;flex-direction:column;gap:14px;">'
+    + '<div><label id="al-label-name" style="font-family:Manrope;font-weight:600;font-size:12px;color:#374151;display:block;margin-bottom:5px;">Naam <span style="color:#ef4444;">*</span></label>'
+    + '<input id="al-form-name" type="text" placeholder="Jouw naam" autocomplete="name" style="width:100%;padding:12px 14px;border:1.5px solid #d1d5db;border-radius:10px;font-size:14px;color:#0A0E14;outline:none;background:#fff;font-family:Manrope,system-ui,sans-serif;transition:border-color .2s,box-shadow .2s;"></div>'
+    + '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">'
+    + '<div><label id="al-label-email" style="font-family:Manrope;font-weight:600;font-size:12px;color:#374151;display:block;margin-bottom:5px;">E-mail <span style="color:#ef4444;">*</span></label>'
+        + '<input id="al-form-email" type="email" placeholder="jouw@email.be" autocomplete="email" style="width:100%;padding:12px 14px;border:1.5px solid #d1d5db;border-radius:10px;font-size:14px;color:#0A0E14;outline:none;background:#fff;font-family:Manrope,system-ui,sans-serif;transition:border-color .2s,box-shadow .2s;"></div>'
+    + '<div><label id="al-label-phone" style="font-family:Manrope;font-weight:600;font-size:12px;color:#374151;display:block;margin-bottom:5px;">Telefoon</label>'
+    + '<input id="al-form-phone" type="tel" placeholder="+32 4XX XX XX XX" autocomplete="tel" style="width:100%;padding:12px 14px;border:1.5px solid #d1d5db;border-radius:10px;font-size:14px;color:#0A0E14;outline:none;background:#fff;font-family:Manrope,system-ui,sans-serif;transition:border-color .2s,box-shadow .2s;"></div>'
+    + '</div>'
+    + '<div><label id="al-label-msg" style="font-family:Manrope;font-weight:600;font-size:12px;color:#374151;display:block;margin-bottom:5px;">Extra informatie</label>'
+    + '<textarea id="al-form-msg" rows="3" placeholder="Datum, locatie, bijzonderheden..." style="width:100%;padding:12px 14px;border:1.5px solid #d1d5db;border-radius:10px;font-size:14px;color:#0A0E14;outline:none;background:#fff;font-family:Manrope,system-ui,sans-serif;transition:border-color .2s,box-shadow .2s;resize:vertical;"></textarea></div>'
+    + '<div id="al-form-error" style="display:none;background:#fef2f2;border-radius:10px;padding:12px 14px;font-family:Manrope;font-size:13px;color:#dc2626;"></div>'
+    + '<button id="al-form-submit" style="background:#0A0E14;color:#fff;font-family:Manrope;font-weight:600;font-size:15px;padding:14px;border:0;border-radius:999px;margin-top:4px;display:flex;align-items:center;justify-content:center;gap:8px;transition:transform .2s ease,opacity .2s;cursor:pointer;width:100%;">'
+    + '<span id="al-form-btn-text">Verzenden</span>'
+    + '</button></div></div></div>';
+  document.body.appendChild(overlay);
+
+  const alOverlay = overlay;
+
+  window.alCloseModal = function() {
+    alOverlay.style.display = 'none';
+  };
+
+  window.alSubmitForm = function() {
+    const btn = document.getElementById('al-form-submit');
+    const btnText = document.getElementById('al-form-btn-text');
+    const errorEl = document.getElementById('al-form-error');
+
+    // Get current language from localStorage (same key the DC component uses)
+    var alLang = 'nl';
+    try { var s = localStorage.getItem('al-lang'); if (s === 'en' || s === 'nl' || s === 'fr') alLang = s; } catch (e) {}
+    var c = window.alChrome ? window.alChrome[alLang] || window.alChrome.nl : null;
+
+    const name = document.getElementById('al-form-name').value.trim();
+    const email = document.getElementById('al-form-email').value.trim();
+    const phone = document.getElementById('al-form-phone').value.trim();
+    const msg = document.getElementById('al-form-msg').value.trim();
+
+    if (!name) { errorEl.textContent = c ? c.errName : 'Vul je naam in.'; errorEl.style.display = ''; return; }
+    if (!email) { errorEl.textContent = c ? c.errEmail : 'Vul je e-mailadres in.'; errorEl.style.display = ''; return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { errorEl.textContent = c ? c.errEmailInvalid : 'E-mailadres is niet geldig.'; errorEl.style.display = ''; return; }
+    if (phone && !/^(\+32|0)[0-9\s\-\.]{7,15}$/.test(phone.replace(/\s/g,''))) { errorEl.textContent = c ? c.errPhone : 'Telefoonnummer lijkt niet correct (bv. +32 4XX XX XX XX).'; errorEl.style.display = ''; return; }
+    errorEl.style.display = 'none';
+
+    btnText.textContent = '';
+    btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation:al-spin 1s linear infinite;"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg>';
+
+    const items = Array.from(document.querySelectorAll('#al-modal-items-list div'))
+      .map(d => d.textContent.replace(/^\s*•\s*/, ''));
+
+    fetch('/api/quote', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, phone, message: msg, items }),
+    })
+    .then(r => r.json())
+    .then(data => {
+      if (data.ok) {
+        document.getElementById('al-modal-form').style.display = 'none';
+        document.getElementById('al-modal-success').style.display = '';
+        if (window.alClearSelection) window.alClearSelection();
+      } else {
+        btn.innerHTML = '<span id=\"al-form-btn-text\">' + (c ? c.formBtn : 'Verzenden') + '</span>';
+        errorEl.textContent = (c ? c.errGeneric : 'Er ging iets mis.');
+        errorEl.style.display = '';
+      }
+    })
+    .catch(() => {
+      btn.innerHTML = '<span id=\"al-form-btn-text\">' + (c ? c.formBtn : 'Verzenden') + '</span>';
+      errorEl.textContent = (c ? c.errNetwork : 'Kon de server niet bereiken.');
+      errorEl.style.display = '';
+    });
+  };
+
+  // Event delegation for close/submit
+  alOverlay.addEventListener('click', function(e) {
+    if (e.target.closest('.al-modal-close')) alCloseModal();
+    if (e.target.id === 'al-form-submit' || e.target.closest('#al-form-submit')) alSubmitForm();
+    if (e.target === alOverlay) alCloseModal();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && alOverlay.style.display !== 'none') alCloseModal();
+  });
+})();
+</script>
+</body>
+</html>

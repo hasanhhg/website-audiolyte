@@ -432,34 +432,54 @@
     <div style="max-width:900px;margin:0 auto;">
       <div style="font-family:Sora;font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#7A5CFF;">FAQ</div>
       <h2 style="font-family:Sora;font-weight:700;font-size:clamp(2rem,4.6vw,3.5rem);line-height:1.04;letter-spacing:-0.025em;margin:14px 0 0;max-width:18ch;">{{ t.faqTitle }}</h2>
-      <div style="margin-top:clamp(40px,5vw,56px);display:flex;flex-direction:column;gap:20px;">
-        <div style="background:#FAFAFA;border:1px solid rgba(10,14,20,0.08);border-radius:14px;padding:24px 28px;transition:border-color .25s ease,box-shadow .25s ease;" style-hover="border-color:rgba(122,92,255,0.4);box-shadow:0 6px 20px rgba(10,14,20,0.06);">
-          <div style="font-family:Sora;font-weight:600;font-size:16px;color:#0A0E14;display:flex;align-items:center;gap:10px;">
-            <span style="width:8px;height:8px;border-radius:50%;background:linear-gradient(90deg,#34E0FF,#7A5CFF);flex-shrink:0;"></span>
-            {{ t.faq1Q }}
+      <div id="al-faq-list" style="margin-top:clamp(40px,5vw,56px);display:flex;flex-direction:column;gap:14px;">
+        <div class="al-faq-item" style="background:#FAFAFA;border:1px solid rgba(10,14,20,0.08);border-radius:14px;padding:0;overflow:hidden;cursor:pointer;transition:border-color .25s ease;" style-hover="border-color:rgba(122,92,255,0.4);">
+          <div class="al-faq-q" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;user-select:none;-webkit-user-select:none;">
+            <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0;">
+              <span style="width:8px;height:8px;border-radius:50%;background:linear-gradient(90deg,#34E0FF,#7A5CFF);flex-shrink:0;"></span>
+              <span style="font-family:Sora;font-weight:600;font-size:15px;color:#0A0E14;line-height:1.3;">{{ t.faq1Q }}</span>
+            </div>
+            <span class="al-faq-toggle" style="width:24px;height:24px;border-radius:50%;background:#0A0E14;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:Manrope;font-weight:600;font-size:16px;transition:transform .3s cubic-bezier(.2,0,0,1);">+</span>
           </div>
-          <p style="font-family:Manrope;font-size:14.5px;color:#3a4250;line-height:1.65;margin:12px 0 0;">{{ t.faq1A }}</p>
+          <div class="al-faq-a" style="display:none;padding:0 22px 20px;">
+            <p style="font-family:Manrope;font-size:14.5px;color:#3a4250;line-height:1.65;margin:0;">{{ t.faq1A }}</p>
+          </div>
         </div>
-        <div style="background:#FAFAFA;border:1px solid rgba(10,14,20,0.08);border-radius:14px;padding:24px 28px;transition:border-color .25s ease,box-shadow .25s ease;" style-hover="border-color:rgba(122,92,255,0.4);box-shadow:0 6px 20px rgba(10,14,20,0.06);">
-          <div style="font-family:Sora;font-weight:600;font-size:16px;color:#0A0E14;display:flex;align-items:center;gap:10px;">
-            <span style="width:8px;height:8px;border-radius:50%;background:linear-gradient(90deg,#7A5CFF,#FF9A5A);flex-shrink:0;"></span>
-            {{ t.faq2Q }}
+        <div class="al-faq-item" style="background:#FAFAFA;border:1px solid rgba(10,14,20,0.08);border-radius:14px;padding:0;overflow:hidden;cursor:pointer;transition:border-color .25s ease;" style-hover="border-color:rgba(122,92,255,0.4);">
+          <div class="al-faq-q" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;user-select:none;-webkit-user-select:none;">
+            <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0;">
+              <span style="width:8px;height:8px;border-radius:50%;background:linear-gradient(90deg,#7A5CFF,#FF9A5A);flex-shrink:0;"></span>
+              <span style="font-family:Sora;font-weight:600;font-size:15px;color:#0A0E14;line-height:1.3;">{{ t.faq2Q }}</span>
+            </div>
+            <span class="al-faq-toggle" style="width:24px;height:24px;border-radius:50%;background:#0A0E14;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:Manrope;font-weight:600;font-size:16px;transition:transform .3s cubic-bezier(.2,0,0,1);">+</span>
           </div>
-          <p style="font-family:Manrope;font-size:14.5px;color:#3a4250;line-height:1.65;margin:12px 0 0;">{{ t.faq2A }}</p>
+          <div class="al-faq-a" style="display:none;padding:0 22px 20px;">
+            <p style="font-family:Manrope;font-size:14.5px;color:#3a4250;line-height:1.65;margin:0;">{{ t.faq2A }}</p>
+          </div>
         </div>
-        <div style="background:#FAFAFA;border:1px solid rgba(10,14,20,0.08);border-radius:14px;padding:24px 28px;transition:border-color .25s ease,box-shadow .25s ease;" style-hover="border-color:rgba(122,92,255,0.4);box-shadow:0 6px 20px rgba(10,14,20,0.06);">
-          <div style="font-family:Sora;font-weight:600;font-size:16px;color:#0A0E14;display:flex;align-items:center;gap:10px;">
-            <span style="width:8px;height:8px;border-radius:50%;background:linear-gradient(90deg,#FF9A5A,#34E0FF);flex-shrink:0;"></span>
-            {{ t.faq3Q }}
+        <div class="al-faq-item" style="background:#FAFAFA;border:1px solid rgba(10,14,20,0.08);border-radius:14px;padding:0;overflow:hidden;cursor:pointer;transition:border-color .25s ease;" style-hover="border-color:rgba(122,92,255,0.4);">
+          <div class="al-faq-q" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;user-select:none;-webkit-user-select:none;">
+            <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0;">
+              <span style="width:8px;height:8px;border-radius:50%;background:linear-gradient(90deg,#FF9A5A,#34E0FF);flex-shrink:0;"></span>
+              <span style="font-family:Sora;font-weight:600;font-size:15px;color:#0A0E14;line-height:1.3;">{{ t.faq3Q }}</span>
+            </div>
+            <span class="al-faq-toggle" style="width:24px;height:24px;border-radius:50%;background:#0A0E14;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:Manrope;font-weight:600;font-size:16px;transition:transform .3s cubic-bezier(.2,0,0,1);">+</span>
           </div>
-          <p style="font-family:Manrope;font-size:14.5px;color:#3a4250;line-height:1.65;margin:12px 0 0;">{{ t.faq3A }}</p>
+          <div class="al-faq-a" style="display:none;padding:0 22px 20px;">
+            <p style="font-family:Manrope;font-size:14.5px;color:#3a4250;line-height:1.65;margin:0;">{{ t.faq3A }}</p>
+          </div>
         </div>
-        <div style="background:#FAFAFA;border:1px solid rgba(10,14,20,0.08);border-radius:14px;padding:24px 28px;transition:border-color .25s ease,box-shadow .25s ease;" style-hover="border-color:rgba(122,92,255,0.4);box-shadow:0 6px 20px rgba(10,14,20,0.06);">
-          <div style="font-family:Sora;font-weight:600;font-size:16px;color:#0A0E14;display:flex;align-items:center;gap:10px;">
-            <span style="width:8px;height:8px;border-radius:50%;background:linear-gradient(90deg,#34E0FF,#7A5CFF);flex-shrink:0;"></span>
-            {{ t.faq4Q }}
+        <div class="al-faq-item" style="background:#FAFAFA;border:1px solid rgba(10,14,20,0.08);border-radius:14px;padding:0;overflow:hidden;cursor:pointer;transition:border-color .25s ease;" style-hover="border-color:rgba(122,92,255,0.4);">
+          <div class="al-faq-q" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;user-select:none;-webkit-user-select:none;">
+            <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0;">
+              <span style="width:8px;height:8px;border-radius:50%;background:linear-gradient(90deg,#34E0FF,#7A5CFF);flex-shrink:0;"></span>
+              <span style="font-family:Sora;font-weight:600;font-size:15px;color:#0A0E14;line-height:1.3;">{{ t.faq4Q }}</span>
+            </div>
+            <span class="al-faq-toggle" style="width:24px;height:24px;border-radius:50%;background:#0A0E14;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:Manrope;font-weight:600;font-size:16px;transition:transform .3s cubic-bezier(.2,0,0,1);">+</span>
           </div>
-          <p style="font-family:Manrope;font-size:14.5px;color:#3a4250;line-height:1.65;margin:12px 0 0;">{{ t.faq4A }}</p>
+          <div class="al-faq-a" style="display:none;padding:0 22px 20px;">
+            <p style="font-family:Manrope;font-size:14.5px;color:#3a4250;line-height:1.65;margin:0;">{{ t.faq4A }}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -893,6 +913,19 @@ class Component extends DCLogic {
     };
   }
 }
+</script>
+<script>
+// FAQ accordion toggle (outside DC runtime)
+document.addEventListener('click', function(e) {
+  var item = e.target.closest('.al-faq-item');
+  if (!item) return;
+  var answer = item.querySelector('.al-faq-a');
+  var toggle = item.querySelector('.al-faq-toggle');
+  if (!answer || !toggle) return;
+  var isOpen = answer.style.display !== 'none';
+  answer.style.display = isOpen ? 'none' : '';
+  toggle.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(45deg)';
+});
 </script>
 </body>
 </html>

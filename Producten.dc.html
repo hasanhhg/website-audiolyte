@@ -11,14 +11,14 @@
   <title>Alle producten — Audiolyte | Verhuur audio, licht &amp; video België</title>
   <meta name="description" content="Bekijk ons volledige verhuuraanbod: Pioneer, Nexo, Shure, Allen &amp; Heath, Nicols en meer. Audio, licht, video, truss, kabels. Vraag een offerte aan.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://audiolyte.be/producten">
-  <link rel="alternate" hreflang="nl" href="https://audiolyte.be/producten">
-  <link rel="alternate" hreflang="en" href="https://audiolyte.be/en/gear">
-  <link rel="alternate" hreflang="fr" href="https://audiolyte.be/fr/materiel">
+  <link rel="canonical" href="https://hasanhhg.github.io/audiolyte-website/Producten.dc.html">
+  <link rel="alternate" hreflang="nl" href="https://hasanhhg.github.io/audiolyte-website/Producten.dc.html">
+  <link rel="alternate" hreflang="en" href="https://hasanhhg.github.io/audiolyte-website/Producten.dc.html">
+  <link rel="alternate" hreflang="fr" href="https://hasanhhg.github.io/audiolyte-website/Producten.dc.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Alle producten — Audiolyte verhuur">
   <meta property="og:description" content="Ons volledige verhuuraanbod: audio, licht, video, truss, kabels en backline.">
-  <meta property="og:url" content="https://audiolyte.be/producten">
+  <meta property="og:url" content="https://hasanhhg.github.io/audiolyte-website/Producten.dc.html">
   <meta property="og:locale" content="nl_BE">
   <meta property="og:locale:alternate" content="en_BE">
   <meta property="og:locale:alternate" content="fr_BE">
@@ -385,6 +385,11 @@ class Component extends DCLogic {
 <script>
 // Build modal dynamically (outside DC runtime's reach)
 (function() {
+  // Configurable quote API endpoint.
+  // Local dev:  '/api/quote' (server.py)
+  // GitHub Pages: set to a form service like Formspree or Web3Forms
+  // e.g. 'https://formspree.io/f/YOUR_FORM_ID'
+  const AL_API = window.AL_QUOTE_ENDPOINT || '/api/quote';
   const overlay = document.createElement('div');
   overlay.id = 'al-modal-overlay';
   overlay.className = 'al-modal-overlay';
@@ -455,7 +460,7 @@ class Component extends DCLogic {
     const items = Array.from(document.querySelectorAll('#al-modal-items-list div'))
       .map(d => d.textContent.replace(/^\s*•\s*/, ''));
 
-    fetch('/api/quote', {
+    fetch(AL_API, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, phone, message: msg, items }),

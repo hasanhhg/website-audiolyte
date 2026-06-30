@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
   <title>Audiolyte — Geluid &amp; Licht verhuur België | Audio &amp; Light rental Belgium</title>
-  <meta name="description" content="Professionele audio, licht en video verhuur voor evenementen in België. Pioneer, Nexo, Shure, Allen &amp; Heath. Verhuur, installatie en productie. Free quote.">
+  <meta name="description" content="Professionele audio, licht en video verhuur voor evenementen in België. 40+ lichttoestellen, 45+ audio/licht/video producten. Pioneer, Nexo, Shure, Allen &amp; Heath. Verhuur, installatie en productie. Vraag gratis offerte aan.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://audiolyte.be">
   <link rel="alternate" hreflang="nl" href="https://audiolyte.be">
@@ -26,20 +26,88 @@
   <meta property="og:site_name" content="Audiolyte">
   <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Audiolyte",
-    "description": "Professionele audio, licht en video verhuur voor evenementen",
-    "url": "https://audiolyte.be",
-    "telephone": "+32 4XX XX XX XX",
-    "email": "info@audiolyte.be",
-    "priceRange": "€€",
-    "areaServed": ["Brussels", "Genk", "Antwerp", "Leuven", "Belgium"],
-    "serviceType": ["Audio rental", "Lighting rental", "Video rental", "Event production", "Sound installation"],
-    "address": {"@type": "PostalAddress", "addressCountry": "BE"},
-    "sameAs": ["https://instagram.com/audiolyte.be"]
-  }
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Audiolyte",
+      "url": "https://audiolyte.be",
+      "description": "Professionele audio, licht en video verhuur voor evenementen in België",
+      "inLanguage": ["nl", "en", "fr"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://audiolyte.be/Producten.dc.html?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Audiolyte",
+      "description": "Professionele audio, licht en video verhuur voor evenementen. Verhuur, installatie en productie in België.",
+      "url": "https://audiolyte.be",
+      "telephone": "+32 4XX XX XX XX",
+      "email": "info@audiolyte.be",
+      "priceRange": "€€",
+      "areaServed": [
+        {"@type": "City", "name": "Brussels"},
+        {"@type": "City", "name": "Genk"},
+        {"@type": "City", "name": "Antwerp"},
+        {"@type": "City", "name": "Leuven"},
+        {"@type": "Country", "name": "Belgium"}
+      ],
+      "serviceType": [
+        "Audio rental",
+        "Lighting rental",
+        "Video rental",
+        "Event production",
+        "Sound installation",
+        "PA system rental",
+        "Stage lighting rental"
+      ],
+      "address": {"@type": "PostalAddress", "addressCountry": "BE"},
+      "sameAs": ["https://instagram.com/audiolyte.be"],
+      "openingHoursSpecification": [
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "09:00", "closes": "18:00"},
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "09:00", "closes": "18:00"},
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "09:00", "closes": "18:00"},
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "09:00", "closes": "18:00"},
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "18:00"}
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Audio, light & video rental",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Audio rental"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Lighting rental"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Video rental"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Event production"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sound installation"}}
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://audiolyte.be/"},
+        {"@type": "ListItem", "position": 2, "name": "Producten", "item": "https://audiolyte.be/Producten.dc.html"}
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Welke apparatuur heb ik nodig voor mijn evenement?", "acceptedAnswer": {"@type": "Answer", "text": "Bekijk onze volledige inventaris per categorie, of vertel ons over je evenement en wij adviseren de juiste opstelling. Van één microfoon tot een volledige festivalopstelling."}},
+        {"@type": "Question", "name": "Do you deliver and set up the equipment?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We offer dry hire and full-service rental including delivery, setup, operation and breakdown. Our technicians handle everything."}},
+        {"@type": "Question", "name": "Hoe ver van tevoren moet ik boeken?", "acceptedAnswer": {"@type": "Answer", "text": "Minimaal twee weken van tevoren. In het hoogseizoen (mei-september) minstens een maand vooruit. Last-minute is mogelijk afhankelijk van beschikbaarheid."}},
+        {"@type": "Question", "name": "Wat als er iets kapot gaat tijdens het evenement?", "acceptedAnswer": {"@type": "Answer", "text": "Al ons materiaal wordt onderhouden en getest voor elk gebruik. We hebben reserveapparatuur en een technicus standby. We lossen problemen binnen 30 minuten op."}}
+      ]
+    }
+  ]
   </script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="alternate icon" type="image/x-icon" href="favicon.ico">
@@ -84,6 +152,7 @@
           <a href="Producten.dc.html" style="font-family:Manrope;font-weight:500;font-size:14.5px;letter-spacing:.01em;color:{{ linkColor }};opacity:.9;transition:opacity .2s,color .35s ease;" style-hover="opacity:1;">{{ navProducts }}</a>
           <a href="#work" style="font-family:Manrope;font-weight:500;font-size:14.5px;letter-spacing:.01em;color:{{ linkColor }};opacity:.9;transition:opacity .2s,color .35s ease;" style-hover="opacity:1;">{{ t.navWork }}</a>
           <a href="#packages" style="font-family:Manrope;font-weight:500;font-size:14.5px;letter-spacing:.01em;color:{{ linkColor }};opacity:.9;transition:opacity .2s,color .35s ease;" style-hover="opacity:1;">{{ t.navPackages }}</a>
+          <a href="#faq" style="font-family:Manrope;font-weight:500;font-size:14.5px;letter-spacing:.01em;color:{{ linkColor }};opacity:.9;transition:opacity .2s,color .35s ease;" style-hover="opacity:1;">FAQ</a>
           <div style="display:flex;align-items:center;gap:2px;border:1px solid {{ langWrapBorder }};border-radius:999px;padding:3px;transition:border-color .35s ease;">
             <button onClick="{{ setLangNl }}" style="{{ langStyleNl }}">NL</button>
             <button onClick="{{ setLangEn }}" style="{{ langStyleEn }}">EN</button>
@@ -107,6 +176,7 @@
         <a href="Producten.dc.html" onClick="{{ closeMenu }}" style="padding:14px 4px;font-family:Sora;font-weight:600;font-size:18px;color:#0A0E14;border-bottom:1px solid rgba(10,14,20,0.06);">{{ navProducts }}</a>
         <a href="#work" onClick="{{ closeMenu }}" style="padding:14px 4px;font-family:Sora;font-weight:600;font-size:18px;color:#0A0E14;border-bottom:1px solid rgba(10,14,20,0.06);">{{ t.navWork }}</a>
         <a href="#packages" onClick="{{ closeMenu }}" style="padding:14px 4px;font-family:Sora;font-weight:600;font-size:18px;color:#0A0E14;border-bottom:1px solid rgba(10,14,20,0.06);">{{ t.navPackages }}</a>
+        <a href="#faq" onClick="{{ closeMenu }}" style="padding:14px 4px;font-family:Sora;font-weight:600;font-size:18px;color:#0A0E14;border-bottom:1px solid rgba(10,14,20,0.06);">FAQ</a>
         <div style="display:flex;align-items:center;gap:8px;padding:16px 4px 6px;">
           <span style="font-family:Manrope;font-size:13px;color:#6B7280;">{{ t.langLabel }}</span>
           <div style="display:flex;align-items:center;gap:2px;border:1px solid rgba(10,14,20,0.12);border-radius:999px;padding:3px;">
@@ -357,6 +427,32 @@
     </div>
   </section>
 
+  <!-- ================= FAQ ================= -->
+  <section id="faq" style="background:#FFFFFF;color:#0A0E14;padding:clamp(72px,10vh,120px) clamp(20px,5vw,48px);scroll-margin-top:92px;">
+    <div style="max-width:840px;margin:0 auto;">
+      <div style="font-family:Sora;font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#7A5CFF;">FAQ</div>
+      <h2 style="font-family:Sora;font-weight:700;font-size:clamp(1.8rem,3.6vw,2.8rem);line-height:1.04;letter-spacing:-0.025em;margin:14px 0 0;">{{ t.faqTitle }}</h2>
+      <div style="margin-top:clamp(32px,4vw,48px);display:flex;flex-direction:column;gap:18px;">
+        <div style="background:#FAFAFA;border-radius:14px;padding:20px 24px;">
+          <div style="font-family:Sora;font-weight:600;font-size:16px;color:#0A0E14;">{{ t.faq1Q }}</div>
+          <p style="font-family:Manrope;font-size:14.5px;color:#3a4250;line-height:1.6;margin:10px 0 0;">{{ t.faq1A }}</p>
+        </div>
+        <div style="background:#FAFAFA;border-radius:14px;padding:20px 24px;">
+          <div style="font-family:Sora;font-weight:600;font-size:16px;color:#0A0E14;">{{ t.faq2Q }}</div>
+          <p style="font-family:Manrope;font-size:14.5px;color:#3a4250;line-height:1.6;margin:10px 0 0;">{{ t.faq2A }}</p>
+        </div>
+        <div style="background:#FAFAFA;border-radius:14px;padding:20px 24px;">
+          <div style="font-family:Sora;font-weight:600;font-size:16px;color:#0A0E14;">{{ t.faq3Q }}</div>
+          <p style="font-family:Manrope;font-size:14.5px;color:#3a4250;line-height:1.6;margin:10px 0 0;">{{ t.faq3A }}</p>
+        </div>
+        <div style="background:#FAFAFA;border-radius:14px;padding:20px 24px;">
+          <div style="font-family:Sora;font-weight:600;font-size:16px;color:#0A0E14;">{{ t.faq4Q }}</div>
+          <p style="font-family:Manrope;font-size:14.5px;color:#3a4250;line-height:1.6;margin:10px 0 0;">{{ t.faq4A }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= CONTACT ================= -->
   <section id="contact" style="position:relative;background:#0A0E14;color:#fff;padding:clamp(84px,11vh,150px) clamp(20px,5vw,48px) clamp(60px,7vh,90px);scroll-margin-top:92px;overflow:hidden;">
     <div style="position:absolute;width:60vw;height:60vw;right:-18vw;top:-20vw;border-radius:50%;background:radial-gradient(circle,rgba(122,92,255,0.22),rgba(122,92,255,0) 68%);filter:blur(50px);pointer-events:none;animation:al-hue 20s ease-in-out infinite;"></div>
@@ -410,6 +506,7 @@
         <a href="#work" style="transition:color .2s;" style-hover="color:#fff;">{{ t.navWork }}</a>
         <a href="#packages" style="transition:color .2s;" style-hover="color:#fff;">{{ t.navPackages }}</a>
         <a href="#contact" style="transition:color .2s;" style-hover="color:#fff;">{{ t.navContact }}</a>
+        <a href="#faq" style="transition:color .2s;" style-hover="color:#fff;">FAQ</a>
       </div>
       <div style="font-family:Manrope;font-size:13px;color:rgba(255,255,255,0.4);">{{ t.footerTagline }}</div>
     </div>
@@ -462,6 +559,15 @@ class Component extends DCLogic {
       pkg4Cat: "Lighting", pkg4Title: "Light · DJ Set", pkg4a: "2× Fourbar", pkg4b: "4× LED moving wash", pkg4c: "4× BSW280 beams",
       pkgFrom: "from", pkgPerDay: "/ day", pkgRequest: "Request this setup",
       pkgFootnote: "Prices are indicative and exclude delivery, setup and VAT. Tell us about your event for an exact quote.",
+      faqTitle: "Frequently asked questions",
+      faq1Q: "What equipment do I need for my event?",
+      faq1A: "Not sure what you need? Browse our full inventory by category, or tell us about your event and we will recommend the right setup. From a single microphone to a full festival rig, we have you covered.",
+      faq2Q: "Do you deliver and set up the equipment?",
+      faq2A: "Yes. We offer dry hire (pickup only) and full-service rental including delivery, setup, operation and breakdown. Our technicians handle everything so you can focus on your guests.",
+      faq3Q: "How far in advance should I book?",
+      faq3A: "We recommend booking at least two weeks before your event. During peak season (May-September), book at least a month ahead. Last-minute requests are possible, subject to availability.",
+      faq4Q: "What if something breaks during the event?",
+      faq4A: "All our gear is maintained, cased and tested before every rental. If an issue occurs, we have backup units available and a technician on standby. We aim to resolve any problem within 30 minutes.",
       ctaStep1Title: "Tell us about your event", ctaStep1Desc: "Date, venue, headcount and the vibe you're after.",
       ctaStep2Title: "We design & quote", ctaStep2Desc: "The right rig for your space and budget. No guesswork.",
       ctaStep3Title: "We deliver, install & run it", ctaStep3Desc: "You enjoy the show. We handle everything else.",
@@ -510,6 +616,15 @@ class Component extends DCLogic {
       pkg4Cat: "Licht", pkg4Title: "Licht · DJ-set", pkg4a: "2× Fourbar", pkg4b: "4× LED moving wash", pkg4c: "4× BSW280 beams",
       pkgFrom: "vanaf", pkgPerDay: "/ dag", pkgRequest: "Vraag deze opstelling aan",
       pkgFootnote: "Prijzen zijn indicatief en exclusief levering, opbouw en btw. Vertel ons over je evenement voor een exacte offerte.",
+      faqTitle: "Veelgestelde vragen",
+      faq1Q: "Welke apparatuur heb ik nodig voor mijn evenement?",
+      faq1A: "Niet zeker wat je nodig hebt? Bekijk onze volledige inventaris per categorie, of vertel ons over je evenement en wij adviseren de juiste opstelling. Van één microfoon tot een volledige festivalopstelling, wij hebben alles.",
+      faq2Q: "Leveren en installeren jullie de apparatuur?",
+      faq2A: "Ja. Wij bieden droge huur (ophalen) en full-service verhuur inclusief levering, opbouw, bediening en afbraak. Onze technici regelen alles zodat jij je op je gasten kunt richten.",
+      faq3Q: "Hoe ver van tevoren moet ik boeken?",
+      faq3A: "We adviseren minimaal twee weken van tevoren te boeken. In het hoogseizoen (mei-september) raden we aan minstens een maand vooruit te plannen. Last-minute aanvragen zijn mogelijk, afhankelijk van beschikbaarheid.",
+      faq4Q: "Wat als er iets kapot gaat tijdens het evenement?",
+      faq4A: "Al ons materiaal wordt onderhouden, gecaseerd en getest voor elk gebruik. Mocht er een probleem zijn, dan hebben we reserveapparatuur en een technicus standby. We streven ernaar elk probleem binnen 30 minuten op te lossen.",
       ctaStep1Title: "Vertel ons over je evenement", ctaStep1Desc: "Datum, locatie, aantal gasten en de sfeer die je zoekt.",
       ctaStep2Title: "Wij ontwerpen & offreren", ctaStep2Desc: "De juiste opstelling voor je ruimte en budget. Geen giswerk.",
       ctaStep3Title: "Wij leveren, installeren & bedienen", ctaStep3Desc: "Jij geniet van de show. Wij regelen de rest.",
@@ -558,6 +673,15 @@ class Component extends DCLogic {
       pkg4Cat: "Éclairage", pkg4Title: "Lumière · Set DJ", pkg4a: "2× Fourbar", pkg4b: "4× lyre wash LED", pkg4c: "4× beams BSW280",
       pkgFrom: "à partir de", pkgPerDay: "/ jour", pkgRequest: "Demander cette config",
       pkgFootnote: "Prix indicatifs, hors livraison, montage et TVA. Parlez-nous de votre événement pour un devis précis.",
+      faqTitle: "Questions fréquentes",
+      faq1Q: "Quel équipement ai-je besoin pour mon événement ?",
+      faq1A: "Vous ne savez pas ce qu'il vous faut ? Parcourez notre inventaire complet par catégorie, ou parlez-nous de votre événement et nous recommanderons la configuration adaptée. D'un simple micro à un rig de festival complet, nous avons tout.",
+      faq2Q: "Livrez-vous et installez-vous le matériel ?",
+      faq2A: "Oui. Nous proposons la location sèche (retrait sur place) et la location clé en main incluant livraison, installation, exploitation et démontage. Nos techniciens s'occupent de tout pour que vous profitiez de vos invités.",
+      faq3Q: "Combien de temps à l'avance dois-je réserver ?",
+      faq3A: "Nous recommandons de réserver au moins deux semaines avant votre événement. En haute saison (mai-septembre), réservez au moins un mois à l'avance. Les demandes de dernière minute sont possibles selon disponibilité.",
+      faq4Q: "Que se passe-t-il si quelque chose tombe en panne pendant l'événement ?",
+      faq4A: "Tout notre matériel est entretenu, mis en flight-case et testé avant chaque location. En cas de problème, nous disposons d'équipements de remplacement et d'un technicien d'astreinte. Nous visons à résoudre tout problème sous 30 minutes.",
       ctaStep1Title: "Parlez-nous de votre événement", ctaStep1Desc: "Date, lieu, nombre d'invités et l'ambiance souhaitée.",
       ctaStep2Title: "Nous concevons & chiffrons", ctaStep2Desc: "Le rig adapté à votre espace et votre budget. Sans approximation.",
       ctaStep3Title: "Nous livrons, installons & exploitons", ctaStep3Desc: "Vous profitez du spectacle. On s'occupe du reste.",

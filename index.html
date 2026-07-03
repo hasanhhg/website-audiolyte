@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Geluid en licht huren in Genk, Limburg & heel België | Audiolyte</title>
-<meta name="description" content="Professioneel geluid, licht en video huren vanaf €6,5 per dag. Afhalen in ons depot in Genk of levering en installatie in heel België. 40+ toestellen, offerte binnen 2 werkdagen.">
+<meta name="description" content="Professioneel geluid, licht en video huren vanaf €6,5 per dag. Afhalen in ons depot in Genk (Limburg) of levering en installatie in heel België. 40+ toestellen, offerte binnen 2 werkdagen.">
 <meta name="theme-color" content="#0A0E14">
 <link rel="icon" type="image/png" href="assets/logo/favicon.png">
 <link rel="apple-touch-icon" href="assets/logo/favicon.png">
@@ -39,7 +39,13 @@
     {"@type": "Country", "name": "België"},
     {"@type": "AdministrativeArea", "name": "Limburg"},
     {"@type": "City", "name": "Genk"},
-    {"@type": "City", "name": "Hasselt"}
+    {"@type": "City", "name": "Hasselt"},
+    {"@type": "City", "name": "Sint-Truiden"},
+    {"@type": "City", "name": "Tongeren"},
+    {"@type": "City", "name": "Beringen"},
+    {"@type": "City", "name": "Maasmechelen"},
+    {"@type": "City", "name": "Lommel"},
+    {"@type": "City", "name": "Bilzen"}
   ],
   "priceRange": "€€",
   "sameAs": ["https://instagram.com/audiolyte.be"],
@@ -57,7 +63,7 @@
   "mainEntity": [
     {"@type": "Question", "name": "Wat doet Audiolyte precies?", "acceptedAnswer": {"@type": "Answer", "text": "Audiolyte verhuurt en installeert professioneel geluid, licht en video voor bruiloften, feesten, concerten, conferenties en bedrijfsevents in heel België. Je huurt losse toestellen of kiest een kant-en-klaar pakket."}},
     {"@type": "Question", "name": "Leveren en installeren jullie het materiaal ook?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. We leveren, bouwen op, stellen alles af en halen na afloop weer op. Bij grotere producties blijft een technieker de hele avond aanwezig. Transport en technieker worden apart verrekend in de offerte."}},
-    {"@type": "Question", "name": "In welke regio werken jullie?", "acceptedAnswer": {"@type": "Answer", "text": "We werken in heel België. Vermeld je locatie en datum in je aanvraag, dan krijg je meteen een correcte offerte inclusief transport."}},
+    {"@type": "Question", "name": "In welke regio werken jullie?", "acceptedAnswer": {"@type": "Answer", "text": "Ons depot staat in Genk, midden in Limburg. We werken geregeld in Hasselt, Genk, Sint-Truiden, Tongeren, Beringen, Maasmechelen en de rest van Limburg, en voor grotere producties in heel België. Vermeld je locatie en datum in je aanvraag, dan krijg je meteen een correcte offerte inclusief transport."}},
     {"@type": "Question", "name": "Hoe vraag ik een offerte aan?", "acceptedAnswer": {"@type": "Answer", "text": "Selecteer producten of een pakket op de productenpagina en verstuur het formulier, of mail rechtstreeks naar info@audiolyte.be. Je krijgt snel een voorstel op maat."}},
     {"@type": "Question", "name": "Zijn de prijzen per dag?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, alle vermelde prijzen zijn dagprijzen exclusief btw, transport en technieker. Voor weekends en meerdaagse events maken we een aangepast voorstel."}},
     {"@type": "Question", "name": "Kan ik materiaal zelf afhalen?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, afhalen kan in ons depot in Genk (Limburg). Liever geen transportzorgen? Wij leveren en installeren in heel België — vermeld het gewoon in je offerteaanvraag."}}
@@ -65,6 +71,7 @@
 }
 </script>
 <script src="./support.js"></script>
+<script src="./analytics.js" defer></script>
 </head>
 <body>
 <x-dc>
@@ -445,7 +452,7 @@ class Component extends DCLogic {
       navQuote: "Request a quote", langLabel: "Language",
       heroEyebrow: "Rental · Installation · Production",
       heroLine1: "Sound. Light.", heroLine2: "Unforgettable.",
-      heroSub: "Professional audio, lighting and video, rented, installed and operated for events of every size.",
+      heroSub: "Professional audio, lighting and video, rented, installed and operated for events of every size. Based in Genk, serving Limburg and all of Belgium.",
       heroSeeWork: "See our work",
       svcEyebrow: "What we do", svcTitle: "From a single mic to a full festival rig.",
       svc1Title: "Rentals", svc1Desc: "Dry hire or fully delivered. Choose from our complete inventory of audio, lighting, video and rigging. We get it to your venue and back.",
@@ -466,7 +473,7 @@ class Component extends DCLogic {
       faqEyebrow: "Questions", faqTitle: "Frequently asked questions.",
       faq1q: "What does Audiolyte do?", faq1a: "Audiolyte rents out and installs professional sound, lighting and video for weddings, parties, concerts, conferences and corporate events across Belgium. Rent individual items or choose a ready-made package.",
       faq2q: "Do you deliver and install the equipment?", faq2a: "Yes. We deliver, set up, tune everything and collect it afterwards. For larger productions a technician stays on site all evening. Transport and technician are quoted separately.",
-      faq3q: "Which region do you cover?", faq3a: "We work across all of Belgium. Mention your location and date in your request and you will receive an accurate quote including transport.",
+      faq3q: "Which region do you cover?", faq3a: "Our depot is in Genk, in the heart of Limburg. We regularly work in Hasselt, Genk, Sint-Truiden, Tongeren, Beringen, Maasmechelen and the rest of Limburg, and for larger productions across all of Belgium. Mention your location and date in your request and you will receive an accurate quote including transport.",
       faq4q: "How do I request a quote?", faq4a: "Select products or a package on the products page and send the form, or email info@audiolyte.be directly. You will quickly receive a tailored proposal.",
       faq5q: "Are prices per day?", faq5a: "Yes, all listed prices are day prices excluding VAT, transport and technician. For weekends and multi-day events we make a custom proposal.",
       faq6q: "Can I pick up equipment myself?", faq6a: "Yes, pickup is available at our depot in Genk (Limburg). Prefer zero hassle? We deliver and install across Belgium — just mention it in your quote request.",
@@ -484,14 +491,14 @@ class Component extends DCLogic {
       ctaTitleLine1: "Let's build", ctaTitleLine2: "your show.",
       ctaSub: "Tell us what you're planning and we'll put together a quote, usually within two working days.",
       ctaEmailBtn: "Email us", ctaCallBtn: "Call us",
-      lblEmail: "Email", lblPhone: "Phone", lblInstagram: "Instagram", lblBasedIn: "Based in", valBasedIn: "Genk, Belgium",
+      lblEmail: "Email", lblPhone: "Phone", lblInstagram: "Instagram", lblBasedIn: "Based in", valBasedIn: "Genk (Limburg), Belgium",
       footerTagline: "© 2026 Audiolyte · Sound & light rental and installation · Last updated: July 2026" },
     nl: {
       navServices: "Diensten", navGear: "Materiaal", navWork: "Realisaties", navPackages: "Pakketten", navContact: "Contact",
       navQuote: "Offerte aanvragen", langLabel: "Taal",
       heroEyebrow: "Verhuur · Installatie · Productie",
       heroLine1: "Geluid. Licht.", heroLine2: "Onvergetelijk.",
-      heroSub: "Professionele audio, verlichting en video, gehuurd, geïnstalleerd en bediend voor evenementen van elk formaat.",
+      heroSub: "Professionele audio, verlichting en video, gehuurd, geïnstalleerd en bediend voor evenementen van elk formaat. Vanuit Genk, voor heel Limburg en België.",
       heroSeeWork: "Bekijk ons werk",
       svcEyebrow: "Wat we doen", svcTitle: "Van één microfoon tot een volledige festivalopstelling.",
       svc1Title: "Verhuur", svc1Desc: "Droge huur of volledig geleverd. Kies uit ons complete aanbod aan audio, licht, video en rigging. Wij brengen het tot bij jou en weer terug.",
@@ -512,7 +519,7 @@ class Component extends DCLogic {
       faqEyebrow: "Vragen", faqTitle: "Veelgestelde vragen.",
       faq1q: "Wat doet Audiolyte precies?", faq1a: "Audiolyte verhuurt en installeert professioneel geluid, licht en video voor bruiloften, feesten, concerten, conferenties en bedrijfsevents in heel België. Je huurt losse toestellen of kiest een kant-en-klaar pakket.",
       faq2q: "Leveren en installeren jullie het materiaal ook?", faq2a: "Ja. We leveren, bouwen op, stellen alles af en halen na afloop weer op. Bij grotere producties blijft een technieker de hele avond aanwezig. Transport en technieker worden apart verrekend in de offerte.",
-      faq3q: "In welke regio werken jullie?", faq3a: "We werken in heel België. Vermeld je locatie en datum in je aanvraag, dan krijg je meteen een correcte offerte inclusief transport.",
+      faq3q: "In welke regio werken jullie?", faq3a: "Ons depot staat in Genk, midden in Limburg. We werken geregeld in Hasselt, Genk, Sint-Truiden, Tongeren, Beringen, Maasmechelen en de rest van Limburg, en voor grotere producties in heel België. Vermeld je locatie en datum in je aanvraag, dan krijg je meteen een correcte offerte inclusief transport.",
       faq4q: "Hoe vraag ik een offerte aan?", faq4a: "Selecteer producten of een pakket op de productenpagina en verstuur het formulier, of mail rechtstreeks naar info@audiolyte.be. Je krijgt snel een voorstel op maat.",
       faq5q: "Zijn de prijzen per dag?", faq5a: "Ja, alle vermelde prijzen zijn dagprijzen exclusief btw, transport en technieker. Voor weekends en meerdaagse events maken we een aangepast voorstel.",
       faq6q: "Kan ik materiaal zelf afhalen?", faq6a: "Ja, afhalen kan in ons depot in Genk (Limburg). Liever geen transportzorgen? Wij leveren en installeren in heel België — vermeld het gewoon in je offerteaanvraag.",
@@ -530,14 +537,14 @@ class Component extends DCLogic {
       ctaTitleLine1: "Laten we je show", ctaTitleLine2: "bouwen.",
       ctaSub: "Vertel ons wat je plant en wij stellen een offerte samen, meestal binnen twee werkdagen.",
       ctaEmailBtn: "Mail ons", ctaCallBtn: "Bel ons",
-      lblEmail: "E-mail", lblPhone: "Telefoon", lblInstagram: "Instagram", lblBasedIn: "Gevestigd in", valBasedIn: "Genk, België",
+      lblEmail: "E-mail", lblPhone: "Telefoon", lblInstagram: "Instagram", lblBasedIn: "Gevestigd in", valBasedIn: "Genk (Limburg), België",
       footerTagline: "© 2026 Audiolyte · Verhuur en installatie van geluid & licht · Laatst bijgewerkt: juli 2026" },
     fr: {
       navServices: "Services", navGear: "Matériel", navWork: "Réalisations", navPackages: "Forfaits", navContact: "Contact",
       navQuote: "Demander un devis", langLabel: "Langue",
       heroEyebrow: "Location · Installation · Production",
       heroLine1: "Son. Lumière.", heroLine2: "Inoubliable.",
-      heroSub: "Audio, éclairage et vidéo professionnels, loués, installés et exploités pour des événements de toute taille.",
+      heroSub: "Audio, éclairage et vidéo professionnels, loués, installés et exploités pour des événements de toute taille. Depuis Genk, pour tout le Limbourg et la Belgique.",
       heroSeeWork: "Voir nos réalisations",
       svcEyebrow: "Ce que nous faisons", svcTitle: "D'un simple micro à un rig de festival complet.",
       svc1Title: "Location", svc1Desc: "Location sèche ou entièrement livrée. Choisissez dans notre inventaire complet d'audio, d'éclairage, de vidéo et de rigging. Nous l'amenons sur place et le récupérons.",
@@ -558,7 +565,7 @@ class Component extends DCLogic {
       faqEyebrow: "Questions", faqTitle: "Questions fréquentes.",
       faq1q: "Que fait Audiolyte exactement ?", faq1a: "Audiolyte loue et installe du son, de l'éclairage et de la vidéo professionnels pour mariages, fêtes, concerts, conférences et événements d'entreprise dans toute la Belgique. Louez des appareils séparés ou choisissez un forfait clé en main.",
       faq2q: "Livrez-vous et installez-vous le matériel ?", faq2a: "Oui. Nous livrons, montons, réglons tout et récupérons le matériel après. Pour les grandes productions, un technicien reste sur place toute la soirée. Transport et technicien sont chiffrés séparément.",
-      faq3q: "Quelle région couvrez-vous ?", faq3a: "Nous travaillons dans toute la Belgique. Indiquez votre lieu et votre date dans votre demande pour recevoir un devis précis, transport inclus.",
+      faq3q: "Quelle région couvrez-vous ?", faq3a: "Notre dépôt se trouve à Genk, au cœur du Limbourg. Nous travaillons régulièrement à Hasselt, Genk, Saint-Trond, Tongres, Beringen, Maasmechelen et dans tout le Limbourg, et pour les grandes productions dans toute la Belgique. Indiquez votre lieu et votre date dans votre demande pour recevoir un devis précis, transport inclus.",
       faq4q: "Comment demander un devis ?", faq4a: "Sélectionnez des produits ou un forfait sur la page produits et envoyez le formulaire, ou écrivez directement à info@audiolyte.be. Vous recevrez vite une proposition sur mesure.",
       faq5q: "Les prix sont-ils par jour ?", faq5a: "Oui, tous les prix affichés sont des prix journaliers hors TVA, transport et technicien. Pour les week-ends et événements de plusieurs jours, nous faisons une offre adaptée.",
       faq6q: "Puis-je venir chercher le matériel ?", faq6a: "Oui, l'enlèvement est possible à notre dépôt de Genk (Limbourg). Vous préférez éviter le transport ? Nous livrons et installons dans toute la Belgique — précisez-le dans votre demande.",
@@ -576,7 +583,7 @@ class Component extends DCLogic {
       ctaTitleLine1: "Créons votre", ctaTitleLine2: "spectacle.",
       ctaSub: "Dites-nous ce que vous préparez et nous établissons un devis, généralement sous deux jours ouvrés.",
       ctaEmailBtn: "Écrivez-nous", ctaCallBtn: "Appelez-nous",
-      lblEmail: "E-mail", lblPhone: "Téléphone", lblInstagram: "Instagram", lblBasedIn: "Basés à", valBasedIn: "Genk, Belgique",
+      lblEmail: "E-mail", lblPhone: "Téléphone", lblInstagram: "Instagram", lblBasedIn: "Basés à", valBasedIn: "Genk (Limbourg), Belgique",
       footerTagline: "© 2026 Audiolyte · Location et installation son & lumière · Mise à jour : juillet 2026" } };
 
   state = {

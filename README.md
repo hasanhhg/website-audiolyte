@@ -1,45 +1,37 @@
-# Audiolyte
+# Audiolyte — website
 
-[![Deploy to GitHub Pages](https://github.com/hasanhhg/audiolyte-website/actions/workflows/deploy.yml/badge.svg)](https://github.com/hasanhhg/audiolyte-website/actions/workflows/deploy.yml)
+Productieklare statische website voor audiolyte.be (verhuur & installatie van geluid, licht en video).
 
-**Sound & light rental Belgium** — Professionele audio, licht en video verhuur voor evenementen in België.
+## Wat staat hier
 
-## Site
+| Bestand / map | Doel |
+|---|---|
+| `index.html` | Homepage (hosting-kopie van `Audiolyte.dc.html`) |
+| `producten.html` | Productcatalogus + offerte (kopie van `Producten.dc.html`) |
+| `support.js` | Runtime die de pagina's rendert — verplicht mee uploaden |
+| `assets/` | Logo's, productfoto's, showfoto's, favicon |
+| `404.html` | Foutpagina (GitHub Pages pikt dit automatisch op) |
+| `robots.txt` | Zoekmachines + AI-crawlers toegelaten, verwijst naar sitemap |
+| `sitemap.xml` | Sitemap voor Google/Bing |
+| `llms.txt` | Samenvatting voor AI-zoekmachines (GEO) |
+| `CNAME` | Custom domein voor GitHub Pages (audiolyte.be) |
+| `.nojekyll` | Schakelt Jekyll-verwerking uit op GitHub Pages |
+| `Audiolyte.dc.html`, `Producten.dc.html` | Bewerkbare bronbestanden (niet nodig op de server, mag mee) |
 
-- **Live:** [https://audiolyte.be](https://audiolyte.be)
-- **Taal:** Nederlands · English · Français (client-side switch)
-- **Framework:** DC Runtime (DesignCode)
+**Niet uploaden:** de map `uploads/` (bronmateriaal, ~50MB).
 
-## Pages
+## Publiceren op GitHub Pages
 
-| Page | URL | Beschrijving |
-|------|-----|-------------|
-| Homepage | `/` | Hero, diensten, materiaal, realisaties, pakketten, contact |
-| Producten | `/Producten.dc.html` | Volledige inventaris met selectie + offerteformulier |
+1. Maak een repository (bv. `audiolyte-site`).
+2. Upload alles behalve `uploads/`.
+3. Settings → Pages → Source: `main` branch, `/ (root)`.
+4. Custom domain: vul `audiolyte.be` in (het `CNAME`-bestand staat al klaar) en zet **Enforce HTTPS** aan.
+5. Bij je domeinregistrar: een `A`-record naar de GitHub Pages IP's (185.199.108.153 / .109 / .110 / .111) of een `CNAME` van `www` naar `<gebruikersnaam>.github.io`.
 
-## Productcategorieën
+## Wijzigingen doorvoeren
 
-- **Licht** — 40+ toestellen: moving heads, washes, beams, hazers, lasers
-- **Audio** — PA, mixers, wireless, monitors, DI, stageboxes
-- **DJ, Video & Backline** — CDJ-3000, DJM-A9, schermen, keyboards
-- **Trussing & Decor** — Truss, towers, lifts, molton backdrops
-- **Kabels & Stroom** — XLR, CAT6, stroomverdeling
+Bewerk `Audiolyte.dc.html` / `Producten.dc.html` (of `index.html` / `producten.html` rechtstreeks — het zijn kopieën met aangepaste onderlinge links). Productdata en prijzen staan in `producten.html` in het `CATS`-blok; pakketten in het `PK`-blok (in beide pagina's, 3 talen).
 
-## Tech
+## Nog aan te vullen
 
-- Static site op GitHub Pages
-- DC Runtime (support.js) voor interactieve templates
-- Trilingual (NL/EN/FR) via client-side localStorage
-- Productselectie + offerteformulier (POST /api/quote via lokale server of Formspree)
-- GitHub Actions deploy op push naar `main`
-
-## Development
-
-```bash
-python3 server.py 3001
-# Bezoek http://localhost:3001
-```
-
-## Licentie
-
-MIT
+- Bedrijfsgegevens voor de wettelijk verplichte vermeldingen (bedrijfsnaam, BTW-nummer, adres) in de footer.

@@ -113,7 +113,7 @@
       <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
         <div style="display:flex;align-items:center;gap:clamp(16px,2.4vw,32px);">
           <a href="#services" style="font-family:Manrope;font-weight:500;font-size:14.5px;letter-spacing:.01em;color:{{ linkColor }};opacity:.9;transition:opacity .2s,color .35s ease;" style-hover="opacity:1;">{{ t.navServices }}</a>
-          <a href="#gear" style="font-family:Manrope;font-weight:500;font-size:14.5px;letter-spacing:.01em;color:{{ linkColor }};opacity:.9;transition:opacity .2s,color .35s ease;" style-hover="opacity:1;">{{ t.navGear }}</a>
+          <a href="producten.html" style="font-family:Manrope;font-weight:500;font-size:14.5px;letter-spacing:.01em;color:{{ linkColor }};opacity:.9;transition:opacity .2s,color .35s ease;" style-hover="opacity:1;">{{ t.navGear }}</a>
           <a href="#work" style="font-family:Manrope;font-weight:500;font-size:14.5px;letter-spacing:.01em;color:{{ linkColor }};opacity:.9;transition:opacity .2s,color .35s ease;" style-hover="opacity:1;">{{ t.navWork }}</a>
           <a href="#packages" style="font-family:Manrope;font-weight:500;font-size:14.5px;letter-spacing:.01em;color:{{ linkColor }};opacity:.9;transition:opacity .2s,color .35s ease;" style-hover="opacity:1;">{{ t.navPackages }}</a>
           <div style="display:flex;align-items:center;gap:2px;border:1px solid {{ langWrapBorder }};border-radius:999px;padding:3px;transition:border-color .35s ease;">
@@ -135,7 +135,7 @@
     <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
       <div style="background:#FAFAFA;border-bottom:1px solid rgba(10,14,20,0.08);padding:8px clamp(16px,4vw,40px) 22px;display:flex;flex-direction:column;gap:2px;">
         <a href="#services" onClick="{{ closeMenu }}" style="padding:14px 4px;font-family:Sora;font-weight:600;font-size:18px;color:#0A0E14;border-bottom:1px solid rgba(10,14,20,0.06);">{{ t.navServices }}</a>
-        <a href="#gear" onClick="{{ closeMenu }}" style="padding:14px 4px;font-family:Sora;font-weight:600;font-size:18px;color:#0A0E14;border-bottom:1px solid rgba(10,14,20,0.06);">{{ t.navGear }}</a>
+        <a href="producten.html" onClick="{{ closeMenu }}" style="padding:14px 4px;font-family:Sora;font-weight:600;font-size:18px;color:#0A0E14;border-bottom:1px solid rgba(10,14,20,0.06);">{{ t.navGear }}</a>
         <a href="#work" onClick="{{ closeMenu }}" style="padding:14px 4px;font-family:Sora;font-weight:600;font-size:18px;color:#0A0E14;border-bottom:1px solid rgba(10,14,20,0.06);">{{ t.navWork }}</a>
         <a href="#packages" onClick="{{ closeMenu }}" style="padding:14px 4px;font-family:Sora;font-weight:600;font-size:18px;color:#0A0E14;border-bottom:1px solid rgba(10,14,20,0.06);">{{ t.navPackages }}</a>
         <div style="display:flex;align-items:center;gap:8px;padding:16px 4px 6px;">
@@ -420,23 +420,25 @@
         <div><div style="font-family:Sora;font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);">{{ t.lblEmail }}</div><div style="font-family:Manrope;font-size:15.5px;margin-top:8px;"><a href="mailto:info@audiolyte.be" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">info@audiolyte.be</a></div></div>
         <div><div style="font-family:Sora;font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);">{{ t.lblPhone }}</div><div style="font-family:Manrope;font-size:15.5px;margin-top:8px;"><a href="tel:+32486409899" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">+32 486 40 98 99</a></div></div>
         <div><div style="font-family:Sora;font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);">{{ t.lblInstagram }}</div><div style="font-family:Manrope;font-size:15.5px;margin-top:8px;"><a href="https://instagram.com/audiolyte.be" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">audiolyte.be</a></div></div>
-        <div><div style="font-family:Sora;font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);">{{ t.lblBasedIn }}</div><div style="font-family:Manrope;font-size:15.5px;margin-top:8px;">{{ t.valBasedIn }}</div></div>
+        <div><div style="font-family:Sora;font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);">{{ t.lblBasedIn }}</div><div style="font-family:Manrope;font-size:15.5px;line-height:1.5;margin-top:8px;">{{ t.valBasedIn }}<br>{{ t.valBasedIn2 }}</div></div>
       </div>
     </div>
   </section>
 
   <!-- ================= FOOTER ================= -->
-  <footer style="background:#0A0E14;color:#fff;border-top:1px solid rgba(255,255,255,0.1);padding:36px clamp(20px,5vw,48px);">
-    <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;">
-      <img src="assets/logo/audiolyte-light.svg" alt="Audiolyte" style="height:26px;width:auto;">
-      <div style="display:flex;flex-wrap:wrap;gap:22px;font-family:Manrope;font-size:14px;color:rgba(255,255,255,0.6);">
-        <a href="#services" style="transition:color .2s;" style-hover="color:#fff;">{{ t.navServices }}</a>
-        <a href="#gear" style="transition:color .2s;" style-hover="color:#fff;">{{ t.navGear }}</a>
-        <a href="#work" style="transition:color .2s;" style-hover="color:#fff;">{{ t.navWork }}</a>
-        <a href="#packages" style="transition:color .2s;" style-hover="color:#fff;">{{ t.navPackages }}</a>
-        <a href="#contact" style="transition:color .2s;" style-hover="color:#fff;">{{ t.navContact }}</a>
+  <footer style="background:#0A0E14;color:#fff;border-top:1px solid rgba(255,255,255,0.1);padding:34px clamp(20px,5vw,48px) 26px;">
+    <div style="max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:22px;">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 24px;">
+        <img src="assets/logo/audiolyte-light.svg" alt="Audiolyte" style="height:26px;width:auto;">
+        <div style="display:flex;align-items:center;gap:clamp(9px,2.4vw,22px);font-family:Manrope;font-size:clamp(11.5px,3.1vw,14px);color:rgba(255,255,255,0.65);white-space:nowrap;">
+          <a href="#services" style="transition:color .2s;" style-hover="color:#fff;">{{ t.navServices }}</a>
+          <a href="producten.html" style="transition:color .2s;" style-hover="color:#fff;">{{ t.navGear }}</a>
+          <a href="#work" style="transition:color .2s;" style-hover="color:#fff;">{{ t.navWork }}</a>
+          <a href="#packages" style="transition:color .2s;" style-hover="color:#fff;">{{ t.navPackages }}</a>
+          <a href="#contact" style="transition:color .2s;" style-hover="color:#fff;">{{ t.navContact }}</a>
+        </div>
       </div>
-      <div style="font-family:Manrope;font-size:13px;color:rgba(255,255,255,0.4);">{{ t.footerTagline }}</div>
+      <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;font-family:Manrope;font-size:12.5px;color:rgba(255,255,255,0.4);">{{ t.footerTagline }}</div>
     </div>
   </footer>
 
@@ -491,8 +493,8 @@ class Component extends DCLogic {
       ctaTitleLine1: "Let's build", ctaTitleLine2: "your show.",
       ctaSub: "Tell us what you're planning and we'll put together a quote, usually within two working days.",
       ctaEmailBtn: "Email us", ctaCallBtn: "Call us",
-      lblEmail: "Email", lblPhone: "Phone", lblInstagram: "Instagram", lblBasedIn: "Based in", valBasedIn: "Genk (Limburg), Belgium",
-      footerTagline: "© 2026 Audiolyte · Sound & light rental and installation · Last updated: July 2026" },
+      lblEmail: "Email", lblPhone: "Phone", lblInstagram: "Instagram", lblBasedIn: "Based in", valBasedIn: "Genk (Limburg)", valBasedIn2: "Belgium",
+      footerTagline: "© 2026 Audiolyte · Sound & light rental and installation" },
     nl: {
       navServices: "Diensten", navGear: "Materiaal", navWork: "Realisaties", navPackages: "Pakketten", navContact: "Contact",
       navQuote: "Offerte aanvragen", langLabel: "Taal",
@@ -537,8 +539,8 @@ class Component extends DCLogic {
       ctaTitleLine1: "Laten we je show", ctaTitleLine2: "bouwen.",
       ctaSub: "Vertel ons wat je plant en wij stellen een offerte samen, meestal binnen twee werkdagen.",
       ctaEmailBtn: "Mail ons", ctaCallBtn: "Bel ons",
-      lblEmail: "E-mail", lblPhone: "Telefoon", lblInstagram: "Instagram", lblBasedIn: "Gevestigd in", valBasedIn: "Genk (Limburg), België",
-      footerTagline: "© 2026 Audiolyte · Verhuur en installatie van geluid & licht · Laatst bijgewerkt: juli 2026" },
+      lblEmail: "E-mail", lblPhone: "Telefoon", lblInstagram: "Instagram", lblBasedIn: "Gevestigd in", valBasedIn: "Genk (Limburg)", valBasedIn2: "België",
+      footerTagline: "© 2026 Audiolyte · Verhuur en installatie van geluid & licht" },
     fr: {
       navServices: "Services", navGear: "Matériel", navWork: "Réalisations", navPackages: "Forfaits", navContact: "Contact",
       navQuote: "Demander un devis", langLabel: "Langue",
@@ -583,8 +585,8 @@ class Component extends DCLogic {
       ctaTitleLine1: "Créons votre", ctaTitleLine2: "spectacle.",
       ctaSub: "Dites-nous ce que vous préparez et nous établissons un devis, généralement sous deux jours ouvrés.",
       ctaEmailBtn: "Écrivez-nous", ctaCallBtn: "Appelez-nous",
-      lblEmail: "E-mail", lblPhone: "Téléphone", lblInstagram: "Instagram", lblBasedIn: "Basés à", valBasedIn: "Genk (Limbourg), Belgique",
-      footerTagline: "© 2026 Audiolyte · Location et installation son & lumière · Mise à jour : juillet 2026" } };
+      lblEmail: "E-mail", lblPhone: "Téléphone", lblInstagram: "Instagram", lblBasedIn: "Basés à", valBasedIn: "Genk (Limbourg)", valBasedIn2: "Belgique",
+      footerTagline: "© 2026 Audiolyte · Location et installation son & lumière" } };
 
   state = {
     scrolled: false,
@@ -838,22 +840,7 @@ class Component extends DCLogic {
     const navProducts = navProductsLabels[lang] || navProductsLabels.nl;
     const packages = (PK[lang] || PK.nl).map((p, i) => {
       const act = () => {
-        const body = [
-          t.pkgMailIntro,
-          '',
-          (t.pkgMailPkg || 'Pakket') + ': ' + p.title,
-          ...p.items.map((s) => '- ' + s),
-          (p.price ? (t.pkgMailPrice || 'Richtprijs') + ': ' + p.price : ''),
-          '',
-          t.pkgMailFields,
-          (t.fName || 'Naam') + ': ',
-          (t.lblPhone || 'Telefoon') + ': ',
-          (t.pkgMailDate || 'Datum') + ': ',
-          (t.pkgMailLoc || 'Locatie') + ': ',
-          (t.pkgMailExtra || 'Extra info') + ': ',
-        ].filter((l) => l !== null && l !== undefined).join('\n');
-        const href = 'mailto:info@audiolyte.be?subject=' + encodeURIComponent(t.pkgMailSubject + p.title) + '&body=' + encodeURIComponent(body);
-        try { window.location.href = href; } catch (e) {}
+        try { window.location.href = 'producten.html#packages'; } catch (e) {}
       };
       return {
         cat: p.cat,

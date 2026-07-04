@@ -1,5 +1,8 @@
 /* Audiolyte analytics — GA4 (G-15QKYYRQMC) with GDPR consent banner.
-   No tracking until the visitor accepts; choice is stored in localStorage. */
+   No tracking until the visitor accepts; choice is stored in localStorage.
+   Collects: page views, scroll depth, section views, FAQ opens, UI clicks,
+   language switches, email/phone clicks, JS errors (+ GA4 enhanced
+   measurement: outbound clicks, forms, downloads, video, site search). */
 (function () {
   'use strict';
   var GA_ID = 'G-15QKYYRQMC';
@@ -22,6 +25,108 @@
     fr: { msg: 'Nous utilisons des cookies pour mesurer la fréquentation du site de façon anonyme et l’améliorer.', ok: 'D’accord', no: 'Non merci' }
   };
 
+  function track(name, params) {
+    if (window.gtag) { try { window.gtag('event', name, params || {}); } catch (e) {} }
+  }
+
+  function sectionOf(el) {
+    var s = el && el.closest ? el.closest('section[id]') : null;
+    if (s) return s.id;
+    if (el && el.closest && el.closest('header')) return 'nav';
+    if (el && el.closest && el.closest('footer')) return 'footer';
+    return 'page';
+  }
+
+  function attachInstrumentation() {
+    // --- clicks: email / phone (key events) + generic UI clicks ---
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+      if (!t || !t.closest) return;
+
+      var a = t.closest('a[href^="mailto:"], a[href^="tel:"]');
+      if (a) {
+        var href = a.getAttribute('href') || '';
+        track(href.indexOf('tel:') === 0 ? 'contact_phone_click' : 'contact_email_click', {
+          link_text: (a.textContent || '').trim().slice(0, 60),
+          page_path: location.pathname,
+          section: sectionOf(a)
+        });
+        return;
+      }
+
+      var sum = t.closest('summary');
+      if (sum) {
+        track('faq_open', {
+          question: (sum.textContent || '').replace(/\+$/, '').trim().slice(0, 90),
+          page_path: location.pathname
+        });
+        return;
+      }
+
+      var c = t.closest('a, button, [role="button"], [tabindex]');
+      if (c) {
+        var label = (c.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 60);
+        if (label) {
+          track('ui_click', { label: label, section: sectionOf(c), page_path: location.pathname });
+        }
+      }
+
+      // language switch detection (lang buttons update localStorage after the click)
+      var before = lang();
+      setTimeout(function () {
+        var after = lang();
+        if (after !== before) track('language_switch', { from: before, to: after });
+      }, 50);
+    }, true);
+
+    // --- scroll depth (25/50/75/90) + section views, both scroll-driven ---
+    var marks = [25, 50, 75, 90], fired = {}, seen = {};
+    function checkSections() {
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      var secs = document.querySelectorAll('section[id]');
+      for (var i = 0; i < secs.length; i++) {
+        var s = secs[i];
+        if (seen[s.id]) continue;
+        var r = s.getBoundingClientRect();
+        var visible = Math.min(r.bottom, vh) - Math.max(r.top, 0);
+        if (visible > 120 && (visible >= r.height * 0.15 || visible >= vh * 0.5)) {
+          seen[s.id] = true;
+          track('section_view', { section: s.id, page_path: location.pathname });
+        }
+      }
+    }
+    function onScroll() {
+      var h = document.documentElement;
+      var total = (h.scrollHeight - h.clientHeight) || 1;
+      var pct = Math.round((window.scrollY || h.scrollTop) / total * 100);
+      for (var i = 0; i < marks.length; i++) {
+        var m = marks[i];
+        if (pct >= m && !fired[m]) {
+          fired[m] = true;
+          track('scroll_depth', { percent: m, page_path: location.pathname });
+        }
+      }
+      checkSections();
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    // content renders client-side: check the initial viewport once it exists
+    var tries = 0;
+    var poll = setInterval(function () {
+      tries++;
+      if (document.querySelectorAll('section[id]').length) { clearInterval(poll); checkSections(); }
+      else if (tries > 20) { clearInterval(poll); }
+    }, 500);
+
+    // --- JS errors (site health signal) ---
+    window.addEventListener('error', function (e) {
+      track('js_error', {
+        message: String(e.message || 'unknown').slice(0, 100),
+        source: String(e.filename || '').split('/').pop().slice(0, 40),
+        page_path: location.pathname
+      });
+    });
+  }
+
   function loadGA() {
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
@@ -30,22 +135,15 @@
       analytics_storage: 'granted'
     });
     gtag('js', new Date());
-    gtag('config', GA_ID, { cookie_flags: 'SameSite=Lax;Secure' });
+    gtag('config', GA_ID, {
+      cookie_flags: 'SameSite=Lax;Secure',
+      site_language: lang()
+    });
     var s = document.createElement('script');
     s.async = true;
     s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
     document.head.appendChild(s);
-
-    // conversion signals: clicks on email / phone links
-    document.addEventListener('click', function (e) {
-      var a = e.target && e.target.closest ? e.target.closest('a[href^="mailto:"], a[href^="tel:"]') : null;
-      if (!a) return;
-      var href = a.getAttribute('href') || '';
-      gtag('event', href.indexOf('tel:') === 0 ? 'contact_phone_click' : 'contact_email_click', {
-        link_text: (a.textContent || '').trim().slice(0, 60),
-        page_path: location.pathname
-      });
-    }, true);
+    attachInstrumentation();
   }
 
   function showBanner() {

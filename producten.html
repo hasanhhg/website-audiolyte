@@ -990,6 +990,16 @@
     a{text-decoration:none;color:inherit;}
     button{font-family:inherit;}
     ::selection{background:rgba(122,92,255,0.3);color:#fff;}
+    @media (max-width:620px){
+      .al-back-label{display:none;}
+    }
+    @media (max-width:380px){
+      .al-plogo{height:26px !important;}
+      .al-plang button{font-size:11px !important;padding:4px 7px !important;}
+    }
+    @media (max-width:520px){
+      .al-form-row{grid-template-columns:1fr !important;}
+    }
   </style>
 </helmet>
 
@@ -1001,14 +1011,14 @@
   <header style="position:sticky;top:0;z-index:50;background:rgba(250,250,251,0.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(10,14,20,0.08);">
     <nav style="max-width:1320px;margin:0 auto;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,4vw,40px);gap:20px;">
       <a href="index.html" aria-label="Audiolyte" style="display:flex;align-items:center;height:34px;flex-shrink:0;">
-        <img src="assets/logo/audiolyte.svg" alt="Audiolyte" style="height:34px;width:auto;display:block;">
+        <img src="assets/logo/audiolyte.svg" alt="Audiolyte" class="al-plogo" style="height:34px;width:auto;display:block;">
       </a>
       <div style="display:flex;align-items:center;gap:14px;">
-        <a href="index.html" style="display:inline-flex;align-items:center;gap:7px;font-family:Manrope;font-weight:600;font-size:14px;color:#0A0E14;opacity:.85;transition:opacity .2s;" style-hover="opacity:1;">
+        <a href="index.html" aria-label="{{ back }}" style="display:inline-flex;align-items:center;gap:7px;font-family:Manrope;font-weight:600;font-size:14px;color:#0A0E14;opacity:.85;white-space:nowrap;transition:opacity .2s;" style-hover="opacity:1;">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
-          {{ back }}
+          <span class="al-back-label">{{ back }}</span>
         </a>
-        <div style="display:flex;align-items:center;gap:2px;border:1px solid rgba(10,14,20,0.12);border-radius:999px;padding:3px;">
+        <div class="al-plang" style="display:flex;align-items:center;gap:2px;border:1px solid rgba(10,14,20,0.12);border-radius:999px;padding:3px;">
           <button onClick="{{ setLangNl }}" aria-pressed="{{ isNl }}" aria-label="Nederlands" style="{{ langStyleNl }}">NL</button>
           <button onClick="{{ setLangEn }}" aria-pressed="{{ isEn }}" aria-label="English" style="{{ langStyleEn }}">EN</button>
           <button onClick="{{ setLangFr }}" aria-pressed="{{ isFr }}" aria-label="Français" style="{{ langStyleFr }}">FR</button>
@@ -1037,7 +1047,7 @@
           <h2 style="font-family:Sora;font-weight:700;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-0.02em;margin:0;">{{ sec.name }}</h2>
           <span style="font-family:Manrope;font-weight:600;font-size:14px;color:#9aa1ab;">{{ sec.count }}</span>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:clamp(14px,1.6vw,20px);">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(176px,40vw),1fr));gap:clamp(14px,1.6vw,20px);">
           <sc-for list="{{ sec.items }}" as="p" hint-placeholder-count="6">
             <div onClick="{{ p.onToggle }}" onKeyDown="{{ p.onKey }}" role="button" aria-pressed="{{ p.selected }}" tabindex="0" style="position:relative;background:#fff;border:1px solid rgba(10,14,20,0.08);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:13px;cursor:pointer;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;" style-hover="transform:translateY(-3px);box-shadow:0 14px 30px rgba(10,14,20,0.09);border-color:rgba(122,92,255,0.4);">
               <sc-if value="{{ p.selected }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;border-radius:12px;box-shadow:inset 0 0 0 2px #7A5CFF;background:rgba(122,92,255,0.05);pointer-events:none;z-index:2;"></div></sc-if>
@@ -1099,7 +1109,7 @@
   <!-- ============ SELECTION BAR ============ -->
   <sc-if value="{{ hasSelection }}" hint-placeholder-val="{{ false }}">
     <div style="position:fixed;left:50%;bottom:clamp(16px,3vw,28px);transform:translateX(-50%);z-index:70;display:flex;align-items:center;gap:12px;background:#0A0E14;color:#fff;border:1px solid rgba(255,255,255,0.12);border-radius:999px;padding:10px 10px 10px 22px;box-shadow:0 18px 50px rgba(10,14,20,0.4);max-width:calc(100vw - 28px);">
-      <span style="font-family:Manrope;font-weight:600;font-size:14px;white-space:nowrap;">{{ selCountLabel }}</span>
+      <span style="font-family:Manrope;font-weight:600;font-size:14px;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis;">{{ selCountLabel }}</span>
       <button onClick="{{ clearSel }}" style="background:transparent;border:0;cursor:pointer;color:rgba(255,255,255,0.6);font-family:Manrope;font-weight:600;font-size:13px;padding:6px 6px;transition:color .2s;" style-hover="color:#fff;">{{ clearLbl }}</button>
       <button onClick="{{ openForm }}" style="background:#fff;color:#0A0E14;border:0;cursor:pointer;font-family:Manrope;font-weight:700;font-size:14px;padding:11px 22px;border-radius:999px;white-space:nowrap;transition:transform .2s ease;" style-hover="transform:translateY(-1px);">{{ reqBtn }}</button>
     </div>
@@ -1154,7 +1164,7 @@
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7A5CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
                 <span style="font-family:Manrope;font-size:13px;color:#4a4270;line-height:1.5;">{{ locNote }}</span>
               </div>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+              <div class="al-form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
                 <label style="display:flex;flex-direction:column;gap:6px;">
                   <span style="font-family:Manrope;font-weight:600;font-size:13px;color:#0A0E14;">{{ fName }} <span style="color:#FF6B4A;">*</span></span>
                   <input value="{{ form.name }}" onInput="{{ onName }}" placeholder="{{ phName }}" style="width:100%;box-sizing:border-box;font-family:Manrope;font-size:14px;color:#0A0E14;background:#fff;border:1px solid rgba(10,14,20,0.15);border-radius:10px;padding:11px 13px;outline:none;transition:border-color .2s;" style-focus="border-color:#7A5CFF;">
@@ -1164,7 +1174,7 @@
                   <input type="email" value="{{ form.email }}" onInput="{{ onEmail }}" placeholder="{{ phEmail }}" style="width:100%;box-sizing:border-box;font-family:Manrope;font-size:14px;color:#0A0E14;background:#fff;border:1px solid rgba(10,14,20,0.15);border-radius:10px;padding:11px 13px;outline:none;transition:border-color .2s;" style-focus="border-color:#7A5CFF;">
                 </label>
               </div>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+              <div class="al-form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
                 <label style="display:flex;flex-direction:column;gap:6px;">
                   <span style="font-family:Manrope;font-weight:600;font-size:13px;color:#0A0E14;">{{ fPhone }}</span>
                   <input type="tel" value="{{ form.phone }}" onInput="{{ onPhone }}" placeholder="{{ phPhone }}" style="width:100%;box-sizing:border-box;font-family:Manrope;font-size:14px;color:#0A0E14;background:#fff;border:1px solid rgba(10,14,20,0.15);border-radius:10px;padding:11px 13px;outline:none;transition:border-color .2s;" style-focus="border-color:#7A5CFF;">

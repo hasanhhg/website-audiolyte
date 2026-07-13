@@ -87,9 +87,12 @@
 <script src="./analytics.js" defer></script>
 </head>
 <body>
-<!-- Static content for crawlers & no-JS visitors; removed before paint when JS runs.
-     AI search crawlers (GPTBot, ClaudeBot, PerplexityBot) do not execute JavaScript. -->
-<div id="seo-content" style="max-width:760px;margin:40px auto;padding:0 20px;font-family:system-ui,sans-serif;line-height:1.65;color:#f5f5f5;">
+<!-- Static content for crawlers & no-JS visitors. Visually hidden (not DOM-removed) so
+     it stays in the rendered DOM Googlebot indexes — a JS-removal here would make this
+     invisible to Googlebot too, since it executes JS same as a browser before indexing.
+     aria-hidden keeps screen readers from double-announcing content also shown live below.
+     AI search crawlers (GPTBot, ClaudeBot, PerplexityBot) don't run JS and read this directly. -->
+<div id="seo-content" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;padding:0;margin:-1px;">
   <p style="font-weight:700;font-size:1.4em;margin:0 0 10px;">Geluid en licht huren in Genk — verhuur en installatie voor heel Limburg en België</p>
   <p>Audiolyte verhuurt en installeert professioneel geluid, licht en video voor bruiloften, feesten, concerten, conferenties en bedrijfsevents. Afhalen kan in ons depot in Genk (Limburg); levering, opbouw en bediening door een technieker kan in heel België. Dagprijzen starten vanaf €6,50 voor een Shure SM58; een offerte krijg je meestal binnen twee werkdagen via <a href="mailto:info@audiolyte.be" style="color:#9d86ff;">info@audiolyte.be</a>.</p>
   <h2>Wat kost geluid en licht huren?</h2>
@@ -116,7 +119,6 @@
   <h2>Contact</h2>
   <p>Audiolyte · depot in Genk (Limburg), België · e-mail <a href="mailto:info@audiolyte.be" style="color:#9d86ff;">info@audiolyte.be</a> · telefoon <a href="tel:+32486409899" style="color:#9d86ff;">+32 486 40 98 99</a> · Instagram <a href="https://instagram.com/audiolyte.be" style="color:#9d86ff;">@audiolyte.be</a>. Website in het Nederlands, Engels en Frans. Laatst bijgewerkt: juli 2026.</p>
 </div>
-<script>(function(){var e=document.getElementById('seo-content');if(e){e.parentNode.removeChild(e);}})();</script>
 <x-dc>
 <helmet>
   <link rel="preconnect" href="https://fonts.googleapis.com">

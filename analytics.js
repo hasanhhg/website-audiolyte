@@ -1,4 +1,4 @@
-/* Audiolyte analytics — GA4 (G-15QKYYRQMC) with GDPR consent banner.
+/* Audiolyte analytics: GA4 (G-15QKYYRQMC) with GDPR consent banner.
    No tracking until the visitor accepts; choice is stored in localStorage.
    Collects: page views, scroll depth, section views, FAQ opens, UI clicks,
    language switches, email/phone clicks, JS errors (+ GA4 enhanced

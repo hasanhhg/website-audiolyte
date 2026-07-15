@@ -1086,9 +1086,7 @@
 </div>
 <x-dc>
 <helmet>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
   <style>
     *{box-sizing:border-box;}
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
@@ -1187,7 +1185,7 @@
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:clamp(16px,2vw,22px);margin-top:clamp(28px,3.5vw,44px);">
         <sc-for list="{{ packages }}" as="pk" hint-placeholder-count="6">
-          <article onClick="{{ pk.onRequest }}" onKeyDown="{{ pk.onKey }}" role="button" tabindex="0" style="background:#fff;border:1px solid rgba(10,14,20,0.1);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:15px;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 44px rgba(10,14,20,0.1);border-color:rgba(122,92,255,0.45);">
+          <div onClick="{{ pk.onRequest }}" onKeyDown="{{ pk.onKey }}" role="button" tabindex="0" style="background:#fff;border:1px solid rgba(10,14,20,0.1);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:15px;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 44px rgba(10,14,20,0.1);border-color:rgba(122,92,255,0.45);">
             <div style="font-family:Sora;font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:{{ pk.color }};">{{ pk.cat }}</div>
             <h3 style="font-family:Sora;font-weight:600;font-size:1.4rem;margin:0;letter-spacing:-0.01em;">{{ pk.title }}</h3>
             <div style="white-space:pre-line;font-family:Manrope;font-size:14px;color:#3a4250;line-height:1.7;flex:1;">{{ pk.items }}</div>
@@ -1197,7 +1195,7 @@
                 <span style="display:inline-flex;align-items:center;gap:6px;font-family:Manrope;font-weight:600;font-size:13.5px;color:#7A5CFF;">{{ reqBtn }} →</span>
               </div>
             </div>
-          </article>
+          </div>
         </sc-for>
       </div>
       <p style="font-family:Manrope;font-size:13px;color:#8a93a1;margin:22px 0 0;">{{ pkgFootnote }}</p>

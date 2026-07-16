@@ -158,7 +158,7 @@
     span.textContent = t.msg;
     var ok = document.createElement('button');
     ok.textContent = t.ok;
-    ok.style.cssText = 'border:0;border-radius:999px;padding:9px 20px;font-family:Manrope;font-weight:700;font-size:13.5px;background:#7A5CFF;color:#fff;cursor:pointer;';
+    ok.style.cssText = 'border:0;border-radius:999px;padding:9px 20px;font-family:Manrope;font-weight:700;font-size:13.5px;background:#6647E6;color:#fff;cursor:pointer;';
     var no = document.createElement('button');
     no.textContent = t.no;
     no.style.cssText = 'border:1px solid rgba(255,255,255,0.25);border-radius:999px;padding:9px 20px;font-family:Manrope;font-weight:600;font-size:13.5px;background:transparent;color:rgba(255,255,255,0.75);cursor:pointer;';

@@ -1121,7 +1121,7 @@
   <header style="position:sticky;top:0;z-index:50;background:rgba(250,250,251,0.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(10,14,20,0.08);">
     <nav style="max-width:1320px;margin:0 auto;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,4vw,40px);gap:20px;">
       <a href="index.html" aria-label="Audiolyte" style="display:flex;align-items:center;height:34px;flex-shrink:0;">
-        <img src="assets/logo/audiolyte.svg" alt="Audiolyte" class="al-plogo" style="height:34px;width:auto;display:block;">
+        <img src="assets/logo/audiolyte.svg" width="649" height="135" alt="Audiolyte" class="al-plogo" style="height:34px;width:auto;display:block;">
       </a>
       <div style="display:flex;align-items:center;gap:14px;">
         <a href="index.html" aria-label="{{ back }}" style="display:inline-flex;align-items:center;gap:7px;font-family:Manrope;font-weight:600;font-size:14px;color:#0A0E14;opacity:.85;white-space:nowrap;transition:opacity .2s;" style-hover="opacity:1;">
@@ -1173,7 +1173,7 @@
               </div>
               <div style="display:flex;flex-direction:column;gap:4px;">
                 <div style="font-family:Manrope;font-weight:600;font-size:14px;line-height:1.25;color:#0A0E14;">{{ p.name }}</div>
-                <sc-if value="{{ p.priceStr }}" hint-placeholder-val="price"><div style="font-family:Manrope;font-weight:600;font-size:12.5px;color:#7A5CFF;">{{ p.priceStr }}</div></sc-if>
+                <sc-if value="{{ p.priceStr }}" hint-placeholder-val="price"><div style="font-family:Manrope;font-weight:600;font-size:12.5px;color:#6647E6;">{{ p.priceStr }}</div></sc-if>
               </div>
             </div>
           </sc-for>
@@ -1183,7 +1183,7 @@
 
     <!-- PACKAGES -->
     <section id="packages" style="scroll-margin-top:92px;margin:clamp(20px,3vw,36px) 0 clamp(44px,6vw,72px);">
-      <div style="font-family:Sora;font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#7A5CFF;">{{ pkgEyebrow }}</div>
+      <div style="font-family:Sora;font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#6647E6;">{{ pkgEyebrow }}</div>
       <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;margin-top:14px;">
         <h2 style="font-family:Sora;font-weight:700;font-size:clamp(1.8rem,4vw,3rem);line-height:1.05;letter-spacing:-0.025em;margin:0;max-width:18ch;">{{ pkgTitle }}</h2>
         <p style="font-family:Manrope;font-size:14px;color:#6B7280;margin:0;max-width:40ch;line-height:1.55;">{{ pkgIntro }}</p>
@@ -1197,13 +1197,13 @@
             <div>
               <div style="font-family:Sora;font-weight:700;font-size:1.2rem;margin-bottom:14px;">{{ pk.price }}</div>
               <div style="border-top:1px solid rgba(10,14,20,0.08);padding-top:14px;">
-                <span style="display:inline-flex;align-items:center;gap:6px;font-family:Manrope;font-weight:600;font-size:13.5px;color:#7A5CFF;">{{ reqBtn }} →</span>
+                <span style="display:inline-flex;align-items:center;gap:6px;font-family:Manrope;font-weight:600;font-size:13.5px;color:#6647E6;">{{ reqBtn }} →</span>
               </div>
             </div>
           </div>
         </sc-for>
       </div>
-      <p style="font-family:Manrope;font-size:13px;color:#8a93a1;margin:22px 0 0;">{{ pkgFootnote }}</p>
+      <p style="font-family:Manrope;font-size:13px;color:#626b78;margin:22px 0 0;">{{ pkgFootnote }}</p>
     </section>
 
     <!-- CTA -->
@@ -1257,7 +1257,7 @@
                     <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;background:#f6f7f8;border-radius:10px;padding:10px 12px;">
                       <div style="display:flex;flex-direction:column;gap:2px;min-width:0;">
                         <span style="font-family:Manrope;font-weight:600;font-size:14px;color:#0A0E14;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ s.name }}</span>
-                        <span style="font-family:Manrope;font-weight:600;font-size:12px;color:#7A5CFF;">{{ s.priceStr }}</span>
+                        <span style="font-family:Manrope;font-weight:600;font-size:12px;color:#6647E6;">{{ s.priceStr }}</span>
                       </div>
                       <button onClick="{{ s.onRemove }}" aria-label="{{ remove }}" style="flex-shrink:0;width:28px;height:28px;border-radius:50%;border:0;background:transparent;cursor:pointer;color:#9aa1ab;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s;" style-hover="background:#e9ebee;color:#0A0E14;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
                     </div>
@@ -1277,26 +1277,26 @@
               <div class="al-form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
                 <label style="display:flex;flex-direction:column;gap:6px;">
                   <span style="font-family:Manrope;font-weight:600;font-size:13px;color:#0A0E14;">{{ fName }} <span style="color:#FF6B4A;">*</span></span>
-                  <input value="{{ form.name }}" onInput="{{ onName }}" placeholder="{{ phName }}" style="width:100%;box-sizing:border-box;font-family:Manrope;font-size:14px;color:#0A0E14;background:#fff;border:1px solid rgba(10,14,20,0.15);border-radius:10px;padding:11px 13px;outline:none;transition:border-color .2s;" style-focus="border-color:#7A5CFF;">
+                  <input value="{{ form.name }}" onInput="{{ onName }}" placeholder="{{ phName }}" style="width:100%;box-sizing:border-box;font-family:Manrope;font-size:14px;color:#0A0E14;background:#fff;border:1px solid rgba(10,14,20,0.15);border-radius:10px;padding:11px 13px;outline:none;transition:border-color .2s;" style-focus="border-color:#6647E6;">
                 </label>
                 <label style="display:flex;flex-direction:column;gap:6px;">
                   <span style="font-family:Manrope;font-weight:600;font-size:13px;color:#0A0E14;">{{ fEmail }} <span style="color:#FF6B4A;">*</span></span>
-                  <input type="email" value="{{ form.email }}" onInput="{{ onEmail }}" placeholder="{{ phEmail }}" style="width:100%;box-sizing:border-box;font-family:Manrope;font-size:14px;color:#0A0E14;background:#fff;border:1px solid rgba(10,14,20,0.15);border-radius:10px;padding:11px 13px;outline:none;transition:border-color .2s;" style-focus="border-color:#7A5CFF;">
+                  <input type="email" value="{{ form.email }}" onInput="{{ onEmail }}" placeholder="{{ phEmail }}" style="width:100%;box-sizing:border-box;font-family:Manrope;font-size:14px;color:#0A0E14;background:#fff;border:1px solid rgba(10,14,20,0.15);border-radius:10px;padding:11px 13px;outline:none;transition:border-color .2s;" style-focus="border-color:#6647E6;">
                 </label>
               </div>
               <div class="al-form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
                 <label style="display:flex;flex-direction:column;gap:6px;">
                   <span style="font-family:Manrope;font-weight:600;font-size:13px;color:#0A0E14;">{{ fPhone }}</span>
-                  <input type="tel" value="{{ form.phone }}" onInput="{{ onPhone }}" placeholder="{{ phPhone }}" style="width:100%;box-sizing:border-box;font-family:Manrope;font-size:14px;color:#0A0E14;background:#fff;border:1px solid rgba(10,14,20,0.15);border-radius:10px;padding:11px 13px;outline:none;transition:border-color .2s;" style-focus="border-color:#7A5CFF;">
+                  <input type="tel" value="{{ form.phone }}" onInput="{{ onPhone }}" placeholder="{{ phPhone }}" style="width:100%;box-sizing:border-box;font-family:Manrope;font-size:14px;color:#0A0E14;background:#fff;border:1px solid rgba(10,14,20,0.15);border-radius:10px;padding:11px 13px;outline:none;transition:border-color .2s;" style-focus="border-color:#6647E6;">
                 </label>
                 <label style="display:flex;flex-direction:column;gap:6px;">
                   <span style="font-family:Manrope;font-weight:600;font-size:13px;color:#0A0E14;">{{ fDate }}</span>
-                  <input type="date" value="{{ form.date }}" onInput="{{ onDate }}" style="width:100%;box-sizing:border-box;font-family:Manrope;font-size:14px;color:#0A0E14;background:#fff;border:1px solid rgba(10,14,20,0.15);border-radius:10px;padding:11px 13px;outline:none;transition:border-color .2s;" style-focus="border-color:#7A5CFF;">
+                  <input type="date" value="{{ form.date }}" onInput="{{ onDate }}" style="width:100%;box-sizing:border-box;font-family:Manrope;font-size:14px;color:#0A0E14;background:#fff;border:1px solid rgba(10,14,20,0.15);border-radius:10px;padding:11px 13px;outline:none;transition:border-color .2s;" style-focus="border-color:#6647E6;">
                 </label>
               </div>
               <label style="display:flex;flex-direction:column;gap:6px;">
                 <span style="font-family:Manrope;font-weight:600;font-size:13px;color:#0A0E14;">{{ fMsg }}</span>
-                <textarea onInput="{{ onMsg }}" placeholder="{{ phMsg }}" value="{{ form.msg }}" style="width:100%;box-sizing:border-box;font-family:Manrope;font-size:14px;color:#0A0E14;background:#fff;border:1px solid rgba(10,14,20,0.15);border-radius:10px;padding:11px 13px;outline:none;min-height:88px;resize:vertical;line-height:1.5;transition:border-color .2s;" style-focus="border-color:#7A5CFF;"></textarea>
+                <textarea onInput="{{ onMsg }}" placeholder="{{ phMsg }}" value="{{ form.msg }}" style="width:100%;box-sizing:border-box;font-family:Manrope;font-size:14px;color:#0A0E14;background:#fff;border:1px solid rgba(10,14,20,0.15);border-radius:10px;padding:11px 13px;outline:none;min-height:88px;resize:vertical;line-height:1.5;transition:border-color .2s;" style-focus="border-color:#6647E6;"></textarea>
               </label>
               <p style="font-family:Manrope;font-size:12px;color:#9aa1ab;line-height:1.5;margin:0;">{{ mailNote }}</p>
               <div style="display:flex;gap:10px;margin-top:2px;">
@@ -1314,12 +1314,12 @@
   <!-- ============ FOOTER ============ -->
   <footer style="background:#0A0E14;color:#fff;border-top:1px solid rgba(255,255,255,0.1);padding:32px clamp(20px,5vw,48px);">
     <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;">
-      <a href="index.html"><img src="assets/logo/audiolyte-light.svg" alt="Audiolyte" style="height:24px;width:auto;display:block;"></a>
+      <a href="index.html"><img src="assets/logo/audiolyte-light.svg" width="649" height="135" alt="Audiolyte" style="height:24px;width:auto;display:block;"></a>
       <a href="index.html" style="display:inline-flex;align-items:center;gap:7px;font-family:Manrope;font-weight:600;font-size:14px;color:rgba(255,255,255,0.7);transition:color .2s;" style-hover="color:#fff;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
         {{ back }}
       </a>
-      <div style="font-family:Manrope;font-size:13px;color:rgba(255,255,255,0.4);">© 2026 Audiolyte · audiolyte.be</div>
+      <div style="font-family:Manrope;font-size:13px;color:rgba(255,255,255,0.65);">© 2026 Audiolyte · audiolyte.be</div>
     </div>
   </footer>
 
@@ -1557,7 +1557,7 @@ class Component extends DCLogic {
         {cat:'Fête', title:'Big Night', items:['2× Mackie 12" + 2× sub 15"','2× Fourbar','4× BT-36 lyre'], price:'dès €290 / jour'},
         {cat:'Festival', title:'Festival', items:['Tout le Concert Rig','Tours de structure + lifts','Booth DJ + écran LED','Pack micros HF','2 techniciens + transport complet'], price:'dès €2200 / jour'},
       ] });
-    const pkgColors = ['#34BFE0', '#7A5CFF', '#FF9A5A'];
+    const pkgColors = ['#127A99', '#6647E6', '#B4530F'];
     const packages = (PK[lang] || PK.nl).map((p, i) => {
       const act = () => this._addPackage('pkg:' + i, { n: c.pkgTag + ' · ' + p.title, priceStr: p.price, isPkg: true });
       return {

@@ -1,4 +1,4 @@
-# Audiolyte — website
+# Audiolyte - website
 
 Productieklare statische website voor **audiolyte.be** (verhuur & installatie van geluid, licht en video).
 
@@ -7,7 +7,7 @@ Productieklare statische website voor **audiolyte.be** (verhuur & installatie va
 | Onderdeel | Waar |
 |---|---|
 | **Website** | GitHub Pages (`hasanhhg/website-audiolyte`, branch `main`) |
-| **Domein** (`audiolyte.be`) | [mijn.host](https://mijn.host) — domeinregistratie + DNS-beheer |
+| **Domein** (`audiolyte.be`) | [mijn.host](https://mijn.host) - domeinregistratie + DNS-beheer |
 
 De website wordt gehost op GitHub Pages. Het domein (`audiolyte.be`) is geregistreerd bij mijn.host. In het mijn.host controlepaneel (`/cp/domains/`) wijzen A-records het domein naar de GitHub Pages IP's:
 - `185.199.108.153`
@@ -17,19 +17,19 @@ De website wordt gehost op GitHub Pages. Het domein (`audiolyte.be`) is geregist
 
 ## Beveiliging
 
-- **Geen API keys of secrets** in broncode — alles publiek en statisch
+- **Geen API keys of secrets** in broncode - alles publiek en statisch
 - **HTTPS** afgedwongen via GitHub Pages (Let's Encrypt, HSTS 1 jaar)
 - **Branch protection** op `main`: force-push en branch deletion geblokkeerd
 - **`.gitignore`** voorkomt per ongeluk committen van klantdata (`quotes/`) en bronmateriaal (`uploads/`)
 - **DNS:** SPF + DNSSEC actief, DMARC op `p=reject`
 
-### DNS fix nodig bij mijn.host
+### TODO: DMARC rapportage
 
-DMARC-rapportage (`rua=`) ontbreekt. Voeg toe in het DNS-paneel:
+DMARC-rapportage (`rua=`) ontbreekt - dit vereist een werkend e-mailadres op het domein. Zodra de e-mailhosting geregeld is, voeg toe in het DNS-paneel bij mijn.host:
 
 | Type | Naam | Waarde |
 |---|---|---|
-| TXT | `_dmarc` | `v=DMARC1; p=reject; sp=reject; rua=mailto:info@audiolyte.be` |
+| TXT | `_dmarc` | `v=DMARC1; p=reject; sp=reject; rua=mailto:<jouw@audiolyte.be>` |
 
 ## Wat staat hier
 
@@ -37,7 +37,7 @@ DMARC-rapportage (`rua=`) ontbreekt. Voeg toe in het DNS-paneel:
 |---|---|
 | `index.html` | Homepage |
 | `producten.html` | Productcatalogus + offerte |
-| `support.js` | Runtime die de pagina's rendert — verplicht mee uploaden |
+| `support.js` | Runtime die de pagina's rendert - verplicht mee uploaden |
 | `assets/` | Logo's, productfoto's, showfoto's, favicon |
 | `404.html` | Foutpagina (GitHub Pages pikt dit automatisch op) |
 | `robots.txt` | Zoekmachines + AI-crawlers toegelaten, verwijst naar sitemap |
@@ -55,7 +55,7 @@ DMARC-rapportage (`rua=`) ontbreekt. Voeg toe in het DNS-paneel:
 
 1. Maak een repository.
 2. Upload alles behalve `uploads/`.
-3. Settings → Pages → Source: `main` branch, `/ (root)`.
+3. Settings - Pages - Source: `main` branch, `/ (root)`.
 4. Custom domain: vul `audiolyte.be` in (het `CNAME`-bestand staat al klaar) en zet **Enforce HTTPS** aan.
 5. Bij mijn.host: A-records naar bovenstaande IP's of CNAME van `www` naar `<gebruikersnaam>.github.io`.
 
@@ -65,4 +65,5 @@ Bewerk HTML-bestanden rechtstreeks. Productdata en prijzen staan in `producten.h
 
 ## Nog aan te vullen
 
+- E-mailhosting voor `@audiolyte.be` adressen
 - Bedrijfsgegevens voor de wettelijk verplichte vermeldingen (bedrijfsnaam, BTW-nummer, adres) in de footer.

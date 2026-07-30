@@ -15,6 +15,22 @@ De website wordt gehost op GitHub Pages. Het domein (`audiolyte.be`) is geregist
 - `185.199.110.153`
 - `185.199.111.153`
 
+## Beveiliging
+
+- **Geen API keys of secrets** in broncode — alles publiek en statisch
+- **HTTPS** afgedwongen via GitHub Pages (Let's Encrypt, HSTS 1 jaar)
+- **Branch protection** op `main`: force-push en branch deletion geblokkeerd
+- **`.gitignore`** voorkomt per ongeluk committen van klantdata (`quotes/`) en bronmateriaal (`uploads/`)
+- **DNS:** SPF + DNSSEC actief, DMARC op `p=reject`
+
+### DNS fix nodig bij mijn.host
+
+DMARC-rapportage (`rua=`) ontbreekt. Voeg toe in het DNS-paneel:
+
+| Type | Naam | Waarde |
+|---|---|---|
+| TXT | `_dmarc` | `v=DMARC1; p=reject; sp=reject; rua=mailto:info@audiolyte.be` |
+
 ## Wat staat hier
 
 | Bestand / map | Doel |
@@ -31,6 +47,7 @@ De website wordt gehost op GitHub Pages. Het domein (`audiolyte.be`) is geregist
 | `analytics.js` | GA4 analytics (GDPR-bewust) |
 | `vendor/` | React + Babel (self-hosted, niet van CDN) |
 | `.nojekyll` | Schakelt Jekyll-verwerking uit op GitHub Pages |
+| `.gitignore` | Voorkomt uploaden van klantdata en bronmateriaal |
 
 **Niet uploaden:** de map `uploads/` (bronmateriaal, ~50MB).
 

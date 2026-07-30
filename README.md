@@ -1,6 +1,19 @@
 # Audiolyte — website
 
-Productieklare statische website voor audiolyte.be (verhuur & installatie van geluid, licht en video).
+Productieklare statische website voor **audiolyte.be** (verhuur & installatie van geluid, licht en video).
+
+## Hosting
+
+| Onderdeel | Waar |
+|---|---|
+| **Website** | GitHub Pages (`hasanhhg/website-audiolyte`, branch `main`) |
+| **Domein** (`audiolyte.be`) | my.host (domeinregistratie + DNS) |
+
+De DNS bij my.host wijst `audiolyte.be` via A-records naar de GitHub Pages IP's:
+- `185.199.108.153`
+- `185.199.109.153`
+- `185.199.110.153`
+- `185.199.111.153`
 
 ## Wat staat hier
 
@@ -26,7 +39,7 @@ Productieklare statische website voor audiolyte.be (verhuur & installatie van ge
 2. Upload alles behalve `uploads/`.
 3. Settings → Pages → Source: `main` branch, `/ (root)`.
 4. Custom domain: vul `audiolyte.be` in (het `CNAME`-bestand staat al klaar) en zet **Enforce HTTPS** aan.
-5. Bij je domeinregistrar: een `A`-record naar de GitHub Pages IP's (185.199.108.153 / .109 / .110 / .111) of een `CNAME` van `www` naar `<gebruikersnaam>.github.io`.
+5. Bij je domeinregistrar (my.host): A-records naar bovenstaande IP's of een CNAME van `www` naar `<gebruikersnaam>.github.io`.
 
 ## Wijzigingen doorvoeren
 

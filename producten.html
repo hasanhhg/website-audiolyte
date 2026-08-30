@@ -1468,6 +1468,22 @@ class Component extends DCLogic {
     lines.push(c.fMsg + ':');
     lines.push(f.msg || '-');
     const href = 'mailto:info@audiolyte.be?subject=' + encodeURIComponent(c.mailSubject) + '&body=' + encodeURIComponent(lines.join('\n'));
+    // Meet de offerteaanvraag voor we naar de mailclient springen. gtag bestaat
+    // alleen na cookie-akkoord, dus weigeraars sturen niets. Naam is bewust
+    // "gestart": we weten dat de mailclient opende, niet dat de mail verstuurd is.
+    if (window.gtag) {
+      let euro = 0, pakket = false;
+      ids.forEach((id) => { const v = this.state.selected[id]; if (v.isPkg) pakket = true; else euro += Number(v.p) || 0; });
+      const heeftDatum = !!(f.date && f.date.trim());
+      const params = {
+        offerte_product_count: ids.length,
+        offerte_total_eur: euro,
+        offerte_has_pakket: pakket ? 'true' : 'false',
+        offerte_has_datum: heeftDatum ? 'true' : 'false',
+        offerte_has_bericht: (f.msg && f.msg.trim()) ? 'true' : 'false' };
+      if (heeftDatum) params.offerte_weeks_ahead = Math.max(0, Math.round((new Date(f.date) - Date.now()) / 604800000));
+      try { window.gtag('event', 'offerte_gestart', params); } catch (e) {}
+    }
     try { window.location.href = href; } catch (e) {}
     this.setState({ sent: true });
   }

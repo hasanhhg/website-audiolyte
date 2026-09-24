@@ -8,3 +8,8 @@ Thumbs.db
 # Python cache
 __pycache__/
 *.pyc
+
+# Niet deployen naar productie
+2dehands/
+marketing/
+optimize_images.py

@@ -1457,7 +1457,7 @@ class Component extends DCLogic {
       try { const s = localStorage.getItem('al-lang'); if (s === 'en' || s === 'nl' || s === 'fr') return s; } catch (e) {}
       const n = (typeof navigator !== 'undefined' ? (navigator.language || '') : '').toLowerCase();
       if (n.indexOf('fr') === 0) return 'fr';
-      if (n.indexOf('en') === 0) return 'en';
+      // English only on request (EN button): Googlebot and many Flemish PCs report en-US.
       return 'nl';
     })() };
 

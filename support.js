@@ -21,9 +21,19 @@
   ));
 
   // src/parse.ts
+  // Audiolyte patch: the template may sit inside <template data-dc-template>, so
+  // browsers never render it and text readers skip it. `node` is what gets removed.
+  function findDc(doc) {
+    const bare = doc.querySelector("x-dc");
+    if (bare) return { el: bare, node: bare };
+    const tpl = doc.querySelector("template[data-dc-template]");
+    const inner = tpl && tpl.content.querySelector("x-dc");
+    return inner ? { el: inner, node: tpl } : null;
+  }
   function parseDcDocument(doc) {
-    const dc = doc.querySelector("x-dc");
-    if (!dc) return null;
+    const found = findDc(doc);
+    if (!found) return null;
+    const dc = found.el;
     const scriptEl = doc.querySelector("script[data-dc-script]");
     const { props, preview } = parseDataProps(
       scriptEl?.getAttribute("data-props") ?? null
@@ -160,7 +170,7 @@
       if (raw?.template) runtime.updateHtml(rootName, raw.template);
     }).catch(() => {
     });
-    const dc = doc.querySelector("x-dc");
+    const dc = findDc(doc).node;
     // Audiolyte patch: mount into the static HTML from prerender.py when present;
     // React clears it on its first commit, so there is no blank frame in between.
     // The template keeps its <style> rules live until React has committed, so it is

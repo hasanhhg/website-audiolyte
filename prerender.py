@@ -4,7 +4,8 @@ The site renders with React at runtime (support.js), so readers without JavaScri
 (AI crawlers, read-page, no-JS visitors) only saw the raw {{ t.x }} template. This
 script opens each page in headless Chrome in Dutch at desktop width, takes the
 rendered #dc-root and writes it between the prerender markers as normal, visible
-HTML. support.js mounts React into that same element, so it simply replaces the
+HTML. The template itself sits in <template data-dc-template>, so nothing renders
+it and text readers skip it. support.js mounts React into that same element, so it simply replaces the
 prerender with the live page (in the visitor's language).
 
 Run after every change to page copy, prices, packages or FAQ:
@@ -61,8 +62,10 @@ def render(browser, url, source):
     html = re.sub(r"transform: translate3d\(-?[\d.]+px, 0px, 0px\)", "transform: translate3d(0px, 0px, 0px)", html)
     if errors:
         sys.exit(f"{url}: page error while rendering: {errors[0]}")
-    # Keep only styles the runtime added at mount; those in the source are already there.
-    runtime_css = [s for s in styles if s.strip() and s not in source]
+    # Keep the styles the runtime put in <head> (page CSS from the template included);
+    # styles already in the source <head> apply before JavaScript anyway.
+    head = source.split("</head>", 1)[0]
+    runtime_css = [s for s in styles if s.strip() and s not in head]
     return html, runtime_css
 
 

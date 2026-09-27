@@ -1,0 +1,3 @@
+# support.js checks these files against a fixed hash (SRI). Keep them byte-exact:
+# a CRLF checkout on Windows changes the hash and React no longer loads locally.
+vendor/*.js -text

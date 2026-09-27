@@ -38,6 +38,7 @@ DMARC-rapportage (`rua=`) ontbreekt - dit vereist een werkend e-mailadres op het
 | `index.html` | Homepage |
 | `producten.html` | Productcatalogus + offerte |
 | `support.js` | Runtime die de pagina's rendert - verplicht mee uploaden |
+| `prerender.py` | Zet de Nederlandse weergave van `index.html` en `producten.html` als gewone HTML in de pagina |
 | `assets/` | Logo's, productfoto's, showfoto's, favicon |
 | `404.html` | Foutpagina (GitHub Pages pikt dit automatisch op) |
 | `robots.txt` | Zoekmachines + AI-crawlers toegelaten, verwijst naar sitemap |
@@ -63,9 +64,12 @@ DMARC-rapportage (`rua=`) ontbreekt - dit vereist een werkend e-mailadres op het
 
 Bewerk HTML-bestanden rechtstreeks. Productdata en prijzen staan in `producten.html` in het `CATS`-blok; pakketten in het `PK`-blok (in beide pagina's, 3 talen).
 
+**Draai daarna altijd `python prerender.py`** (Playwright + Chrome). Het blok tussen `prerender:start` en `prerender:end` is gegenereerd: nooit met de hand bewerken. Na een wijziging aan `support.js`: verhoog de `?v=` op beide pagina's.
+
 ## Beslissingen
 
 - **2026-09-27: geen verborgen SEO-tekst meer.** Het onzichtbare `#seo-content`-blok (1px, geclipt, `aria-hidden`) op `index.html` en `producten.html` is verwijderd: Google noemt verborgen tekst en links een spamovertreding. Bijna alles erin stond al zichtbaar op de site en in de JSON-LD (FAQPage, LocalBusiness, 39 producten met prijs). Het enige unieke deel, de links naar de 10 gidsen, staat nu zichtbaar in de footer van de homepage. Afgewezen: het blok zichtbaar maken als extra sectie (dubbel met de zichtbare FAQ en catalogus). Voeg nooit opnieuw tekst toe die voor bezoekers verborgen is.
+- **2026-09-27: vooraf opgebouwde HTML (prerender).** De site bouwt zich op met React, dus lezers zonder JavaScript (AI-crawlers) zagen alleen `{{ }}`-sjabloontekst. `prerender.py` zet nu de Nederlandse weergave als gewone, zichtbare HTML in `#dc-prerender`; `support.js` (lokaal gepatcht) laat React daarin mounten en haalt het sjabloon pas na de eerste render weg, anders verspringt de pagina. React en ReactDOM krijgen een preload zodat ze niet achter de productfoto's aan laden. Gemeten op traag netwerk met gzip: LCP gelijk of sneller, CLS onder 0,04. Afgewezen: `<noscript>`-kopie (read-page en veel AI-lezers gooien noscript weg) en een vaste mobiele snapshot (desktop is de gangbare crawlerbreedte). `prerender.py` staat bewust in git, anders kan niemand het blok bijwerken.
 
 ## Nog aan te vullen
 

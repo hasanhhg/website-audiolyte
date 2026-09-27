@@ -1,4 +1,4 @@
-// GENERATED from dc-runtime/src/*.ts (local patch: vendor CDN URLs point to /vendor/) — do not edit. Rebuild with `cd dc-runtime && bun run build`.
+// GENERATED from dc-runtime/src/*.ts. Local patches: vendor CDN URLs point to /vendor/, and React mounts into #dc-prerender (see prerender.py). Redo both after a rebuild with `cd dc-runtime && bun run build`.
 "use strict";
 (() => {
   var __defProp = Object.defineProperty;
@@ -161,9 +161,21 @@
     }).catch(() => {
     });
     const dc = doc.querySelector("x-dc");
-    const hostEl = doc.createElement("div");
+    // Audiolyte patch: mount into the static HTML from prerender.py when present;
+    // React clears it on its first commit, so there is no blank frame in between.
+    // The template keeps its <style> rules live until React has committed, so it is
+    // removed only after the first render (otherwise the page shifts in between).
+    const pre = doc.getElementById("dc-prerender");
+    let hostEl;
+    let pendingDc = null;
+    if (pre) {
+      hostEl = pre;
+      pendingDc = dc;
+    } else {
+      hostEl = doc.createElement("div");
+      dc.replaceWith(hostEl);
+    }
     hostEl.id = "dc-root";
-    dc.replaceWith(hostEl);
     if (!parsed.preview) {
       const s = doc.createElement("style");
       s.textContent = FULL_PAGE_CSS;
@@ -173,6 +185,12 @@
     const entry = runtime.registry.get(rootName);
     function StandaloneRoot() {
       const [, setTick] = React.useState(0);
+      React.useLayoutEffect(() => {
+        if (pendingDc) {
+          pendingDc.remove();
+          pendingDc = null;
+        }
+      }, []);
       React.useEffect(() => {
         const sub = () => setTick((n) => n + 1);
         entry.subs.add(sub);

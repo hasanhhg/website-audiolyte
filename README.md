@@ -63,6 +63,10 @@ DMARC-rapportage (`rua=`) ontbreekt - dit vereist een werkend e-mailadres op het
 
 Bewerk HTML-bestanden rechtstreeks. Productdata en prijzen staan in `producten.html` in het `CATS`-blok; pakketten in het `PK`-blok (in beide pagina's, 3 talen).
 
+## Beslissingen
+
+- **2026-09-27: geen verborgen SEO-tekst meer.** Het onzichtbare `#seo-content`-blok (1px, geclipt, `aria-hidden`) op `index.html` en `producten.html` is verwijderd: Google noemt verborgen tekst en links een spamovertreding. Bijna alles erin stond al zichtbaar op de site en in de JSON-LD (FAQPage, LocalBusiness, 39 producten met prijs). Het enige unieke deel, de links naar de 10 gidsen, staat nu zichtbaar in de footer van de homepage. Afgewezen: het blok zichtbaar maken als extra sectie (dubbel met de zichtbare FAQ en catalogus). Voeg nooit opnieuw tekst toe die voor bezoekers verborgen is.
+
 ## Nog aan te vullen
 
 - E-mailhosting voor `@audiolyte.be` adressen

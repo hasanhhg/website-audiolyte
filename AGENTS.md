@@ -2,9 +2,9 @@
 
 ## Handover, read this first
 
-Updated: 2026-09-27, Claude
+Updated: 2026-09-28, Claude
 
-- Done: hidden SEO block removed, guides linked in the footer, prerendered Dutch HTML, Dutch as default language.
+- Done: event and UTM naming written in the README; all 12 sitemap pages load exactly one GA4 tag after consent.
 - Busy: nothing.
 - Next: once Hasan supplies company name, VAT number and address, add the legal details to the footer.
 - Watch: after any copy, price, package or FAQ edit, run `python prerender.py` or no-JS readers get stale text.

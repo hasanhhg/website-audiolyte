@@ -5,8 +5,8 @@
 Updated: 2026-10-20, Codex
 
 - Done: All 12 pages pass consent, withdrawal and preview checks; quote instructions and guide links are clearer.
-- Busy: The verified source is ready to publish.
-- Next: Verify the GitHub Pages release and request indexing for the existing rental guides.
+- Busy: nothing.
+- Next: Google can recrawl the improved guide links; indexing outcomes remain pending.
 - Watch: The quote opens a mail app; a prepared request is not a sent or received email.
 
 Four lines, one sentence each, under 600 characters together. Overwrite them as the last

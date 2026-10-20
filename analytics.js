@@ -7,6 +7,10 @@
   'use strict';
   var GA_ID = 'G-15QKYYRQMC';
   var KEY = 'al-consent'; // 'granted' | 'denied'
+  var choice = null;
+  var loaded = false;
+  var production = location.hostname === 'audiolyte.be';
+  window['ga-disable-' + GA_ID] = !production;
 
   function lang() {
     try {
@@ -20,13 +24,13 @@
   }
 
   var TXT = {
-    nl: { msg: 'We gebruiken cookies om het websitebezoek anoniem te meten en onze site te verbeteren.', ok: 'Prima', no: 'Liever niet' },
-    en: { msg: 'We use cookies to measure website visits anonymously and improve our site.', ok: 'Sounds good', no: 'No thanks' },
-    fr: { msg: 'Nous utilisons des cookies pour mesurer la fréquentation du site de façon anonyme et l’améliorer.', ok: 'D’accord', no: 'Non merci' }
+    nl: { msg: 'Met jouw toestemming gebruiken we Google Analytics om websitebezoek en klikken te meten en onze site te verbeteren.', ok: 'Prima', no: 'Liever niet' },
+    en: { msg: 'With your permission, we use Google Analytics to measure visits and clicks and improve our site.', ok: 'Sounds good', no: 'No thanks' },
+    fr: { msg: 'Avec votre accord, nous utilisons Google Analytics pour mesurer les visites et les clics et améliorer notre site.', ok: 'D’accord', no: 'Non merci' }
   };
 
   function track(name, params) {
-    if (window.gtag) { try { window.gtag('event', name, params || {}); } catch (e) {} }
+    if (choice === 'granted' && loaded && window.gtag) { try { window.gtag('event', name, params || {}); } catch (e) {} }
   }
 
   function sectionOf(el) {
@@ -128,6 +132,9 @@
   }
 
   function loadGA() {
+    if (loaded || !production || choice !== 'granted') return;
+    loaded = true;
+    window['ga-disable-' + GA_ID] = false;
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
     gtag('consent', 'default', {
@@ -147,6 +154,7 @@
   }
 
   function showBanner() {
+    if (document.getElementById('al-consent-bar')) return;
     var t = TXT[lang()] || TXT.nl;
     var bar = document.createElement('div');
     bar.id = 'al-consent-bar';
@@ -157,29 +165,47 @@
     span.style.cssText = 'flex:1 1 260px;min-width:200px;';
     span.textContent = t.msg;
     var ok = document.createElement('button');
+    ok.type = 'button';
     ok.textContent = t.ok;
     ok.style.cssText = 'border:0;border-radius:999px;padding:9px 20px;font-family:Manrope;font-weight:700;font-size:13.5px;background:#6647E6;color:#fff;cursor:pointer;';
     var no = document.createElement('button');
+    no.type = 'button';
     no.textContent = t.no;
     no.style.cssText = 'border:1px solid rgba(255,255,255,0.25);border-radius:999px;padding:9px 20px;font-family:Manrope;font-weight:600;font-size:13.5px;background:transparent;color:rgba(255,255,255,0.75);cursor:pointer;';
     ok.onclick = function () {
+      choice = 'granted';
       try { localStorage.setItem(KEY, 'granted'); } catch (e) {}
       bar.remove();
       loadGA();
     };
     no.onclick = function () {
+      choice = 'denied';
       try { localStorage.setItem(KEY, 'denied'); } catch (e) {}
+      window['ga-disable-' + GA_ID] = true;
+      document.cookie.split(';').forEach(function (part) {
+        var name = part.split('=')[0].trim();
+        if (!/^(_ga($|_)|_gid$|_gat($|_))/.test(name)) return;
+        ['', ';domain=audiolyte.be', ';domain=.audiolyte.be'].forEach(function (domain) {
+          document.cookie = name + '=;max-age=0;path=/' + domain + ';SameSite=Lax;Secure';
+        });
+      });
       bar.remove();
+      if (loaded) location.reload();
     };
     bar.appendChild(span); bar.appendChild(ok); bar.appendChild(no);
     document.body.appendChild(bar);
   }
 
   function init() {
-    var c = null;
-    try { c = localStorage.getItem(KEY); } catch (e) {}
-    if (c === 'granted') { loadGA(); return; }
-    if (c === 'denied') { return; }
+    document.addEventListener('click', function (e) {
+      if (e.target && e.target.closest && e.target.closest('[data-cookie-settings]')) {
+        e.preventDefault();
+        showBanner();
+      }
+    });
+    try { choice = localStorage.getItem(KEY); } catch (e) {}
+    if (choice === 'granted') { loadGA(); return; }
+    if (choice === 'denied') { return; }
     showBanner();
   }
 

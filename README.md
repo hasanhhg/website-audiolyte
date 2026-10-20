@@ -70,13 +70,18 @@ Bewerk HTML-bestanden rechtstreeks. Productdata en prijzen staan in `producten.h
 
 GA4 meet-ID `G-15QKYYRQMC`. GA laadt pas na "Prima" in de banner (`analytics.js`, keuze in localStorage `al-consent`).
 
+De knop in het offerteformulier opent het e-mailprogramma. De bezoeker verstuurt
+de aanvraag daar zelf; `offerte_gestart` bevestigt geen verzending of ontvangst.
+De knop Cookies in de footer opent de voorkeuren opnieuw. Intrekken verwijdert
+Analytics-cookies en herlaadt de pagina. Lokale previews laden geen Analytics.
+
 ### Events die de site verstuurt
 
 | Event | Key event | Parameters | Waar |
 |---|---|---|---|
 | `contact_phone_click` | ja | `link_text`, `section`, `page_path` | klik op een `tel:`-link, `analytics.js` |
 | `contact_email_click` | ja | `link_text`, `section`, `page_path` | klik op een `mailto:`-link, `analytics.js` |
-| `offerte_gestart` | ja | `offerte_product_count`, `offerte_total_eur`, `offerte_has_pakket`, `offerte_has_datum`, `offerte_has_bericht`, `offerte_weeks_ahead` | offerteformulier verstuurd, `producten.html` |
+| `offerte_gestart` | ja | `offerte_product_count`, `offerte_total_eur`, `offerte_has_pakket`, `offerte_has_datum`, `offerte_has_bericht`, `offerte_weeks_ahead` | e-mailaanvraag voorbereid, `producten.html` |
 | `ui_click` | nee | `label`, `section`, `page_path` | elke andere klik op een knop of link |
 | `section_view` | nee | `section`, `page_path` | een `section[id]` komt in beeld |
 | `scroll_depth` | nee | `percent` (25, 50, 75, 90), `page_path` | scrollen |
@@ -111,6 +116,14 @@ Voorbeeld: `https://audiolyte.be/producten.html?utm_source=instagram&utm_medium=
 - Links in Google Business Profile: `utm_source=google&utm_medium=organic&utm_campaign=gbp`, anders tellen ze als gewoon Google-zoekverkeer.
 
 ## Beslissingen
+
+- **2026-10-20:** De bestaande offerte via het e-mailprogramma blijft behouden, met
+  een duidelijke knop en een telefoon/e-mailalternatief. Geen bevestiging van
+  ontvangst tonen als de website alleen de mailapp opent. De keuzehulp in het
+  aanbod verwijst naar de bestaande gidsen. Geen extra dunne SEO-pagina’s.
+- **2026-10-20:** Cookievoorkeuren blijven bereikbaar via de footer, ook na weigeren,
+  en alleen het productiedomein mag Analytics laden.
+
 
 - **2026-09-28: vaste namen voor events en UTM-links** (zie "Meten" hierboven), dezelfde regels als op Hasans andere sites. Afgewezen: vrije `utm_medium`-woorden, want GA4 deelt kanalen daarop in en één verkeerd woord maakt het kanaaloverzicht onbruikbaar.
 - **2026-09-27: geen verborgen SEO-tekst meer.** Het onzichtbare `#seo-content`-blok (1px, geclipt, `aria-hidden`) op `index.html` en `producten.html` is verwijderd: Google noemt verborgen tekst en links een spamovertreding. Bijna alles erin stond al zichtbaar op de site en in de JSON-LD (FAQPage, LocalBusiness, 39 producten met prijs). Het enige unieke deel, de links naar de 10 gidsen, staat nu zichtbaar in de footer van de homepage. Afgewezen: het blok zichtbaar maken als extra sectie (dubbel met de zichtbare FAQ en catalogus). Voeg nooit opnieuw tekst toe die voor bezoekers verborgen is.

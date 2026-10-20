@@ -2,12 +2,12 @@
 
 ## Handover, read this first
 
-Updated: 2026-09-28, Claude
+Updated: 2026-10-20, Codex
 
-- Done: event and UTM naming written in the README; all 12 sitemap pages load exactly one GA4 tag after consent.
-- Busy: nothing.
-- Next: once Hasan supplies company name, VAT number and address, add the legal details to the footer.
-- Watch: after any copy, price, package or FAQ edit, run `python prerender.py` or no-JS readers get stale text.
+- Done: All 12 pages pass consent, withdrawal and preview checks; quote instructions and guide links are clearer.
+- Busy: The verified source is ready to publish.
+- Next: Verify the GitHub Pages release and request indexing for the existing rental guides.
+- Watch: The quote opens a mail app; a prepared request is not a sent or received email.
 
 Four lines, one sentence each, under 600 characters together. Overwrite them as the last
 action of every session, never append: git history keeps the trail.
